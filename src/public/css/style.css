@@ -1,6 +1,8 @@
 body {
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
+  width: 1443px;
+  height: 820px;
 }
 
 ul {
@@ -19,14 +21,6 @@ a {
   position: fixed;
   z-index: 10;
   background-color: rgb(8, 131, 193);
-}
-
-.main_nav {
-  width: 90%;
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
-  margin-right: 20px;
 }
 
 .main_list {
@@ -98,14 +92,21 @@ a {
 
 /* main_page */
 .page_wrapper {
-  padding-top: 55px;
+  padding-top: 100px;
   width: 100%;
   height: 100vh;
-  background-color: rgb(239, 239, 239);
+  background-color: #fff;
+}
+
+.welcome_message {
+  margin-left: 500px;
+}
+
+.create_message {
+  text-align: center;
 }
 
 .message_wrapper {
-  padding-top: 100px;
   text-align: center;
 }
 
@@ -116,13 +117,16 @@ a {
   text-align: center;
 }
 
+.project_title {
+  padding-top: 30px;
+}
+
 .login_box {
   display: inline-block;
   flex-direction: column;
   margin: 0 auto;
   width: 400px;
   height: 300px;
-  border: 1px solid #000;
 }
 
 .project_box {
@@ -130,105 +134,167 @@ a {
   flex-direction: column;
   margin: 0 auto;
   width: 400px;
-  height: 300px;
-  border: 1px solid #000;
+  height: 200px;
   position: relative;
+  background-color: #E5E5E5;
 }
 
 /* welcome_page */
 .welcome_wrapper {
-  width: 800px;
+  width: 500px;
   height: 500px;
   display: flex;
-  justify-content: space-between;
+  flex-flow: column;
+  padding-top: 50px;
   margin: 0 auto;
-  margin-top: 100px;
-}
-
-.welcome_box {
-  width: 350px;
-  height: 350px;
-  border: 1px solid #000;
-}
-
-.choice_box {
-  text-align: center;
-}
-
-.choice_message {
-  margin-top: 50px;
-}
-
-.message_distance {
-  margin-top: 10px;
-}
-
-.create_project  {
-  margin-top: 50px;
 }
 
 /* flowchart_page */
 .flowchart_page_wrapper {
   display: flex;
+  padding-top: 60px;
   width: 100%;
-  height: 100vh;
+  height: 100%;
+  background-color: #E5E5E5;
 }
 
 /* flowchart_left */
 .flowchart_left_nav {
   width: 20%;
-  height: auto;
-  margin: 0 0 5px 5px;
-  background-color: rgb(239, 239, 239);
+  height: 989px;
+  background-color: #E5E5E5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.project_box {
-  position: relative;
-  width: 300px;
-  height: 200px;
+
+.user_project_box {
+  width: 96%;
+  height: 192px;
   border: none;
   border-radius: 20px;
-  background-color: rgb(237, 237, 237);
+  background-color: #FBFCFB;
   box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.4);
 }
 
-/* flowchart_center */
+.plus_btn_wrapper {
+  margin-left: 80%;
+}
+
+/* flowchart > center */
 .flowchart_create_box {
   width: 60%;
-  height: auto;
-  margin: 0 7px 5px 7px;
-  background-color: rgb(248, 144, 144);
+  height: 989px;
+  background-color: #fff;
 }
 
-/* flowchart_right */
+/* flowchart > right */
 .flowchart_right_nav {
   width: 20%;
-  height: auto;
-  margin: 0 5px 5px 0;
-  background-color: rgb(239, 239, 239);
+  height: 989px;
+  display: flex;
+  background-color: #E5E5E5;
 }
 
-.box_wrapper {
+#confirmationArea {
+  width: 206px;
+  height: 916px;
   display: flex;
-  flex-flow: column;
-  position: relative;
-  top: 50px;
-  left: 190px;
-  width: 80px;
-  height: 500px;
-  background-color: #fff;
+  flex-direction: column;
+  align-items: center;
+}
+
+#startEnd {
+  width: 141px;
+  height: 50px;
+  border: 1px solid #000;
+}
+
+#branch {
+  width: 99.7px;
+  height: 99.7px;
+  border: 1px solid #000;
+}
+
+#process {
+  width: 141px;
+  height: 40px;
+  border: 1px solid #000;
+}
+
+#input {
+  width: 141px;
+  height: 40px;
+  border: 1px solid #000;
+}
+
+#loopStart {
+  width: 141px;
+  height: 64px;
+  border: 1px solid #000;
+}
+
+#loopEnd {
+  width: 141px;
+  height: 64px;
+  border: 1px solid #000;
+}
+
+#display {
+  width: 137px;
+  height: 50px;
+  border: 1px solid #000;
+}
+
+#connectOut {
+  width: 51px;
+  height: 51px;
+  border: 1px solid #000;
+}
+
+#connectIn {
+  width: 41px;
+  height: 45px;
+  border: 1px solid #000;
+}
+
+.flowchart_items {
+  margin-top: 10px;
+}
+
+#btnArea {
+  width: 82px;
+  height: 797px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #FFFDFD;
   border: 1px solid rgb(179, 179, 179);
+  margin-top: 30px;
+  margin-left: 45px;
 }
 
 .box_type {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto;
+  width: 54px;
+  height: 56px;
   margin-top: 10px;
   margin-bottom: 20px;
-  background-color: rgb(179, 179, 179);
-  border: 1px solid #000;
+  border: 1px solid #565656;
   box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
+.box_type1 {
+  background-color: #E7E7E7;
+}
+
+.box_type2 {
+  background-color: #A5A5A5;
+}
+
+.how_to_btn_box {
+  margin-top: 100px;
+  margin-left: 200px;
 }
 
 /* btn */
@@ -308,19 +374,24 @@ a {
 }
 
 .create_project_btn {
-  margin-top: 100px;
-  margin-left: 200px;
+  margin-top: 60px;
+  margin-left: 250px;
   padding-top: 2px;
   height: 40px;
   width: 110px;
   font-size: 20px;
-  border-radius: 30px;
+  border-radius: 10px;
+}
+
+.choice_btn_wrapper {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
 }
 
 .choice_btn {
-  width: 60%;
-  margin-top: 30px;
-  border-radius: 30px;
+  margin-top: 10px;
+  border-radius: 10px;
   font-size: 18px;
 }
 
@@ -331,11 +402,21 @@ a {
 }
 
 .how_to_btn {
-  position: relative;
-  top: 650px;
-  left: 50px;
-  padding-top: 8px;
-  width: 140px;
-  height: 40px;
+  width: 83px;
+  height: 29px;
   border-radius: 50px;
+  background-color: #FFFDFD;
+  text-align: center;
+  padding: 2px 0;
+}
+
+.plus_btn {
+  border: none;
+}
+
+/* hover box_border */
+.box_flame:hover {
+  padding: 1em;
+  border: 1px solid #a9a9a9;
+  box-shadow: 3px 3px 6px #696969;
 }
