@@ -13,8 +13,8 @@ a {
   text-decoration: none;
 }
 
-/* header > main_page */
-.header_nav {
+/* header */
+#header_wrapper {
   width: 100%;
   height: 50px;
   display: flex;
@@ -23,26 +23,24 @@ a {
   background-color: rgb(8, 131, 193);
 }
 
-.main_list {
-  display: flex;
-  margin: auto 0;
+#left_btn_area {
+  width: 10%;
+  margin: 10px 0;
+  text-align: center;
 }
 
-.main_list li {
-  margin: 0 20px;
-}
-
-.main_list li a {
-  color: #FFF;
-}
-
-/* header > flowchart */
-.center_nav {
+#center_area {
   width: 80%;
   display: flex;
 }
 
-.nav_left {
+#left_btn_area {
+  width: 10%;
+  float: right;
+  text-align: center;
+}
+
+#left_area {
   width: 50%;
   display: flex;
   padding-top: 10px;
@@ -50,7 +48,7 @@ a {
   justify-content: flex-end;
 }
 
-.nav_right {
+#right_area {
   width: 50%;
   display: flex;
   padding-top: 10px;
@@ -58,36 +56,16 @@ a {
   justify-content: flex-start;
 }
 
-.left_btn {
-  width: 10%;
-  margin: 10px 0;
-  text-align: center;
-}
-
-.right_btn {
-  width: 10%;
-  float: right;
-  text-align: center;
-}
-
-.nav_left li {
+#left_area li {
   padding: 0 10px;
   margin: 0 10px;
   font-size: 18px;
 }
 
-.nav_right li {
+#right_are li {
   padding: 0 10px;
   margin: 0 10px;
   font-size: 18px;
-}
-
-.nav_left a {
-  color: #fff;
-}
-
-.nav_right a {
-  color: #fff;
 }
 
 /* main_page */

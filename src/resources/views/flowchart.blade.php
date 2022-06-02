@@ -2,15 +2,15 @@
 @include("layouts.flowchart_header")
 
     <div class="flowchart_page_wrapper">
+
         <div class="flowchart_left_nav">
             <div class="user_project_box box_flame"></div>
             <div class="plus_btn_wrapper">
                 <a class="plus_btn" type="button" href=""><i class="bi bi-plus-circle"style="font-size: 2rem"></i></a>
             </div>
-
         </div>
-        <div class="flowchart_create_box box_shadow box_flame">
 
+        <div class="flowchart_create_box box_shadow box_flame">
         </div>
 
         <div class="flowchart_right_nav">
