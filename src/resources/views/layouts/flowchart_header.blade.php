@@ -1,22 +1,23 @@
-<header class="header_nav">
-    <div class="left_btn user_btn">
-      <a href="">user</a>
+<header id="header_wrapper">
+
+    <div id="left_btn_area" class="user_btn">
+      <a href="">users</a>
     </div>
 
-    <div class="center_nav">
-      <ul class="nav_left">
+    <div id="center_area">
+      <ul id="left_area">
         <li><a href="">□</a></li>
         <li><a href="">(…)</a></li>
         <li><a href="">🔍</a></li>
       </ul>
-      <ul class="nav_right">
+      <ul id="right_area">
         <li><a href="">✋</a></li>
         <li><a href="">☁</a></li>
         <li><a href="">❓</a></li>
       </ul>
     </div>
-    
-    <div class="right_btn share_btn">
+
+    <div id="left_btn_area" class="share_btn">
       <a href="">share</a>
     </div>
 </header>
