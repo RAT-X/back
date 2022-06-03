@@ -8,6 +8,7 @@
         <div class="login_box">
             <a type="button" class="btn btn-success login_register_btn" href="{{ url('/login') }}"><i class="bi bi-arrow-up-right-square" style="font-size: 1.5rem"></i> &ensp;ログイン</a>
             <a type="button" class="btn btn-primary  login_register_btn" href="{{ url('/register') }}"><i class="bi bi-arrow-down-right-square" style="font-size: 1.5rem"></i> &ensp;新規登録</a>
+            <a type="button" class="btn btn-secondary  login_register_btn" href="/logout"><i class="bi bi-door-closed" style="font-size: 1.5rem"></i> &ensp;ログアウト</a>
 
 
         </div>
@@ -16,7 +17,7 @@
 
 @include("layouts.script")
 <!-- @if (Auth::check())
-<p>USER: {{$user->name . ' (' . $user->email . ')'}}</p>
+<p>USER: {{Auth::user()->name . ' (' . Auth::user()->email . ')'}}</p>
 @else
 <p>※ログインしていません。(<a href="/login">ログイン</a>|
     <a href="/register">登録</a>)</p>
