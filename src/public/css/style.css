@@ -129,26 +129,49 @@ a {
 
 /* flowchart_page */
 .flowchart_page_wrapper {
-  display: flex;
   padding-top: 60px;
-  width: 100%;
+  width: 1443px;
   height: 100%;
+  display: table;
   background-color: #E5E5E5;
 }
 
-/* flowchart_left */
-.flowchart_left_nav {
-  width: 20%;
-  height: 989px;
-  background-color: #E5E5E5;
+#titleAreaWrapper {
+  position: relative;
+  display: table-cell;
+  width: 228px;
+  height: 100%;
+}
+
+#titleArea {
+  position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+#flowChartArea {
+  display: table-cell;
+  width: 937px;
+  height: 100%;
+  position: relative;
+  background-color: #fff;
+}
+
+#functionArea {
+  display: table-cell;
+  width: 278px;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  background-color: #E5E5E5;
+}
+
+/* titleArea */
 .user_project_box {
-  width: 96%;
-  height: 192px;
+  width: 220px;
+  height: 150px;
+  margin: 0 auto;
   border: none;
   border-radius: 20px;
   background-color: #FBFCFB;
@@ -159,97 +182,152 @@ a {
   margin-left: 80%;
 }
 
-/* flowchart > center */
-.flowchart_create_box {
-  width: 60%;
-  height: 989px;
-  background-color: #fff;
-}
-
-/* flowchart > right */
-.flowchart_right_nav {
-  width: 20%;
-  height: 989px;
-  display: flex;
-  background-color: #E5E5E5;
-}
-
+/* functionArea */
 #confirmationArea {
-  width: 206px;
-  height: 916px;
+  width: 200px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
+#btnArea {
+  width: 78px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #E5E5E5;
+}
+
+/* confirmationArea */
 #startEnd {
   width: 141px;
   height: 50px;
-  border: 1px solid #000;
+  background: #8EFE59;
+  border: 5px solid #298907;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
 }
 
 #branch {
-  width: 99.7px;
-  height: 99.7px;
-  border: 1px solid #000;
+  width: 75px;
+  height: 75px;
+  background: #C4C4C4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transform: rotate(-45deg) skew(25deg, 25deg);
 }
 
 #process {
   width: 141px;
   height: 40px;
-  border: 1px solid #000;
+  background: #C4C4C4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #input {
   width: 141px;
   height: 40px;
-  border: 1px solid #000;
+  transform:skewX(-20deg);
+  background: #C4C4C4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 #loopStart {
   width: 141px;
   height: 64px;
-  border: 1px solid #000;
+  background-color: #BDA1BF;
+  background:
+  linear-gradient(-135deg, transparent 15px, #BDA1BF 0) right,
+  linear-gradient(135deg, transparent 15px, #BDA1BF 0) left;
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
 }
 
 #loopEnd {
   width: 141px;
   height: 64px;
-  border: 1px solid #000;
+  background:
+  linear-gradient(-45deg, transparent 15px, #EF9EF7 0) right,
+  linear-gradient(45deg, transparent 15px, #EF9EF7 0) left;
+  background-size: 50% 100%;
+  background-repeat: no-repeat;
 }
 
 #display {
-  width: 137px;
+  width: 169px;
   height: 50px;
-  border: 1px solid #000;
+  margin-right: 26px;
+  background:
+  linear-gradient(135deg, transparent 35px, #C4C4C4 0) top right,
+  linear-gradient(45deg, transparent 35px, #C4C4C4 0) bottom right;
+  background-size: 100% 50%;
+  background-repeat: no-repeat;
 }
 
 #connectOut {
   width: 51px;
   height: 51px;
-  border: 1px solid #000;
+  background-color: #C4C4C4;
+  border-radius: 50%;
 }
 
 #connectIn {
-  width: 41px;
-  height: 45px;
-  border: 1px solid #000;
+  width: 100px;
+  height: 100px;
+  background-color: #C4C4C4;
+  background:
+  linear-gradient(135deg, transparent 35px, #C4C4C4 0) bottom left,
+  linear-gradient(45deg, transparent 35px, #C4C4C4 0) bottom right;
+  background-size: 100% 50%;
+  background-repeat: no-repeat;
 }
 
 .flowchart_items {
   margin-top: 10px;
+  display: flex;
+  position: relative;
 }
 
-#btnArea {
-  width: 82px;
-  height: 797px;
+.fontClass {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #000000;
+}
+
+#branchFontReset {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 19px;
+  color: #000000;
+  transform: skew(-25deg, -25deg) rotate(45deg);
+}
+
+/* btnArea */
+#functionBtn {
+  width: 65px;
+  height: 497px;
+  margin-top: 30px;
+  margin-right: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #FFFDFD;
-  border: 1px solid rgb(179, 179, 179);
-  margin-top: 30px;
-  margin-left: 45px;
+  background: #FFFDFD;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .box_type {
@@ -269,9 +347,9 @@ a {
   background-color: #A5A5A5;
 }
 
-.how_to_btn_box {
-  margin-top: 100px;
-  margin-left: 200px;
+.howToBtn {
+  margin-right: 15px;
+  margin-top: 70px;
 }
 
 /* btn */
@@ -378,7 +456,7 @@ a {
 }
 
 .how_to_btn {
-  width: 83px;
+  width: 80px;
   height: 29px;
   border-radius: 50px;
   background-color: #FFFDFD;
