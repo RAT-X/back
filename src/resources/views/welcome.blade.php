@@ -12,11 +12,15 @@
 
         <div class="choice_btn_wrapper">
             <div class="choice_btn">
-                <a type="button" class="btn btn-success choice_btn" href="{{ url('/login') }}"><i class="bi bi-arrow-up-right-square" style="font-size: 1.5rem"></i> &ensp;作成済みの<br>プロジェクトを開く</a>
+                <a type="button" class="btn btn-success choice_btn" href="{{ url('/load_flowchart') }}"><i class="bi bi-arrow-up-right-square" style="font-size: 1.5rem"></i> &ensp;作成済みの<br>プロジェクトを開く</a>
             </div>
             <div class="choice_btn">
-                <a type="button" class="btn btn-primary choice_btn" href="{{ url('/register') }}"><i class="bi bi-arrow-down-right-square" style="font-size: 1.5rem"></i> &ensp;新規作成</a>
+                <a type="button" class="btn btn-primary choice_btn" href="{{ url('/create_flowchart') }}"><i class="bi bi-arrow-down-right-square" style="font-size: 1.5rem"></i> &ensp;新規作成</a>
             </div>
+            <form action="{{ route('logout') }}" method="post">
+                @csrf
+                <input type="submit" value="ログアウト">
+            </form>
         </div>
     </div>
 </div>
