@@ -1,1 +1,4 @@
 .env
+/data
+/logs
+docker-compose.yml.for_k
