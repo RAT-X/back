@@ -20,6 +20,7 @@ Route::get('/create_flowchart', 'App\Http\Controllers\MakeFlowchartController@sh
 Route::get('/load_flowchart', 'App\Http\Controllers\LoadFlowchartController@show');
 Route::get('/flowchart', 'App\Http\Controllers\FlowchartPageController@show');
 
+
 Auth::routes();
 
 Route::get('/top', [App\Http\Controllers\TopPageController::class, 'index'])->name('top');

@@ -1,11 +1,21 @@
 @include("layouts.head")
 @include("layouts.flowchart_header")
 
+<<<<<<< HEAD
+    <div class="flowchart_page_wrapper row">
+        <div id="titleAreaWrapper">
+            <div id="titleArea">
+                <div class="user_project_box box_flame"></div>
+                <div class="plus_btn_wrapper">
+                    <a class="plus_btn" type="button" href=""><i class="bi bi-plus-circle"style="font-size: 2rem"></i></a>
+                </div>
+=======
     <div class="flowchart_page_wrapper">
         <div id="titleArea">
             <div class="user_project_box box_flame"></div>
             <div class="plus_btn_wrapper">
                 <a class="plusBtn" href=""><i class="bi bi-plus-circle"style="font-size: 2rem"></i></a>
+>>>>>>> refs/remotes/origin/master
             </div>
         </div>
 

@@ -1,8 +1,9 @@
+/* 共通アイテム */
 body {
-  padding: 0;
-  margin: 0 auto;
-  width: 1443px;
-  height: 820px;
+    padding: 0;
+    margin: 0 auto;
+    width: 1443px;
+    height: 820px;
 }
 
 ul {
@@ -20,7 +21,7 @@ a {
   display: flex;
   position: fixed;
   z-index: 10;
-  background-color: rgb(8, 131, 193);
+  background-color: #30499d;
 }
 
 #leftBtnArea {
@@ -44,7 +45,7 @@ a {
   width: 50%;
   display: flex;
   padding-top: 10px;
-  padding-right: 100px;
+  padding-right: 50px;
   justify-content: flex-end;
 }
 
@@ -52,10 +53,11 @@ a {
   width: 50%;
   display: flex;
   padding-top: 10px;
-  padding-left: 100px;
+  padding-left: 50px;
   justify-content: flex-start;
 }
 
+<<<<<<< HEAD
 #left_area li {
   padding: 0 10px;
   margin: 0 10px;
@@ -71,6 +73,11 @@ a {
 /* topPage */
 .mainPageWrapper {
   padding-top: 100px;
+=======
+/* main_page */
+.page_wrapper {
+  padding: 100px;
+>>>>>>> origin
   width: 100%;
   height: 100vh;
   background-color: #fff;
@@ -155,7 +162,18 @@ a {
   width: 1443px;
   height: 100%;
   background-color: #E5E5E5;
+<<<<<<< HEAD
+}
+
+#titleAreaWrapper {
+  position: relative;
+  display: table-cell;
+  width: 228px;
+  height: 100%;
+  padding: 10px;
+=======
   z-index: 1;
+>>>>>>> refs/remotes/origin/master
 }
 
 #titleArea {
@@ -170,7 +188,12 @@ a {
 }
 
 #flowChartArea {
+<<<<<<< HEAD
+  display: table-cell;
+  width: 900px;
+=======
   width: 937px;
+>>>>>>> refs/remotes/origin/master
   height: 100%;
   position: relative;
   top: 0;
@@ -509,9 +532,16 @@ a {
   box-shadow: 3px 3px 6px #696969;
 }
 
+<<<<<<< HEAD
 /* boxShadow */
 .box_shadow {
   display: flex;
   border-radius: 3px;
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.4);
+=======
+/* fontAwesome */
+.aSColor {
+    color: rgb(94, 93, 93);
+    padding: 0 20px;
+>>>>>>> origin
 }
