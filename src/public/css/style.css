@@ -1,8 +1,9 @@
+/* 共通アイテム */
 body {
-  padding: 0;
-  margin: 0 auto;
-  width: 1443px;
-  height: 820px;
+    padding: 0;
+    margin: 0 auto;
+    width: 1443px;
+    height: 820px;
 }
 
 ul {
@@ -20,7 +21,7 @@ a {
   display: flex;
   position: fixed;
   z-index: 10;
-  background-color: rgb(8, 131, 193);
+  background-color: #30499d;
 }
 
 #left_btn_area {
@@ -44,7 +45,7 @@ a {
   width: 50%;
   display: flex;
   padding-top: 10px;
-  padding-right: 100px;
+  padding-right: 50px;
   justify-content: flex-end;
 }
 
@@ -52,25 +53,13 @@ a {
   width: 50%;
   display: flex;
   padding-top: 10px;
-  padding-left: 100px;
+  padding-left: 50px;
   justify-content: flex-start;
-}
-
-#left_area li {
-  padding: 0 10px;
-  margin: 0 10px;
-  font-size: 18px;
-}
-
-#right_area li {
-  padding: 0 10px;
-  margin: 0 10px;
-  font-size: 18px;
 }
 
 /* main_page */
 .page_wrapper {
-  padding-top: 100px;
+  padding: 100px;
   width: 100%;
   height: 100vh;
   background-color: #fff;
@@ -141,6 +130,7 @@ a {
   display: table-cell;
   width: 228px;
   height: 100%;
+  padding: 10px;
 }
 
 #titleArea {
@@ -152,7 +142,7 @@ a {
 
 #flowChartArea {
   display: table-cell;
-  width: 937px;
+  width: 900px;
   height: 100%;
   position: relative;
   background-color: #fff;
@@ -473,4 +463,10 @@ a {
   padding: 1em;
   border: 1px solid #a9a9a9;
   box-shadow: 3px 3px 6px #696969;
+}
+
+/* fontAwesome */
+.aSColor {
+    color: rgb(94, 93, 93);
+    padding: 0 20px;
 }

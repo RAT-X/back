@@ -1,7 +1,7 @@
 @include("layouts.head")
 @include("layouts.flowchart_header")
 
-    <div class="flowchart_page_wrapper">
+    <div class="flowchart_page_wrapper row">
         <div id="titleAreaWrapper">
             <div id="titleArea">
                 <div class="user_project_box box_flame"></div>
