@@ -15,7 +15,6 @@
 
 </div>
 
-@include("layouts.script")
 <!-- @if (Auth::check())
 <p>USER: {{Auth::user()->name . ' (' . Auth::user()->email . ')'}}</p>
 @else

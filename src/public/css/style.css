@@ -1,9 +1,9 @@
 /* 共通アイテム */
 body {
-    padding: 0;
-    margin: 0 auto;
-    width: 1443px;
-    height: 820px;
+  padding: 0;
+  margin: 0 auto;
+  width: 1443px;
+  height: 820px;
 }
 
 ul {
@@ -58,6 +58,9 @@ a {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> tmp
 #left_area li {
   padding: 0 10px;
   margin: 0 10px;
@@ -73,11 +76,7 @@ a {
 /* topPage */
 .mainPageWrapper {
   padding-top: 100px;
-=======
-/* main_page */
-.page_wrapper {
   padding: 100px;
->>>>>>> origin
   width: 100%;
   height: 100vh;
   background-color: #fff;
@@ -113,11 +112,19 @@ a {
   display: flex;
   flex-flow: column;
   padding-top: 50px;
+<<<<<<< HEAD
   margin: 0 auto;
 }
 
 .createMessageBox {
   text-align: center;
+=======
+margin: 0 auto;
+}
+
+.createMessageBox {
+text-align: center;
+>>>>>>> tmp
 }
 
 .createBtnWrapper {
@@ -157,23 +164,11 @@ a {
 
 
 /* flowchart_page */
-.flowchart_page_wrapper {
+.flowChartPageWrapper {
   padding-top: 60px;
   width: 1443px;
   height: 100%;
   background-color: #E5E5E5;
-<<<<<<< HEAD
-}
-
-#titleAreaWrapper {
-  position: relative;
-  display: table-cell;
-  width: 228px;
-  height: 100%;
-  padding: 10px;
-=======
-  z-index: 1;
->>>>>>> refs/remotes/origin/master
 }
 
 #titleArea {
@@ -188,12 +183,7 @@ a {
 }
 
 #flowChartArea {
-<<<<<<< HEAD
-  display: table-cell;
-  width: 900px;
-=======
   width: 937px;
->>>>>>> refs/remotes/origin/master
   height: 100%;
   position: relative;
   top: 0;
@@ -217,17 +207,13 @@ a {
 }
 
 /* titleArea */
-.user_project_box {
+.userProjectBox {
   width: 220px;
   height: 150px;
   border: none;
   border-radius: 20px;
   background-color: #FBFCFB;
   box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.4);
-}
-
-.plus_btn_wrapper {
-  margin-left: 80%;
 }
 
 /* functionArea */
@@ -441,8 +427,8 @@ a {
 }
 
 .user_btn a:hover {
-  background: #313131;
-  color: #FFF;
+background: #313131;
+color: #FFF;
 }
 
 .user_btn a:after {
@@ -460,7 +446,7 @@ a {
 }
 
 .user_btn a:hover:after {
-  border-color: #FFF;
+border-color: #FFF;
 }
 
 /* share_btn */
@@ -533,15 +519,27 @@ a {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> tmp
 /* boxShadow */
 .box_shadow {
   display: flex;
   border-radius: 3px;
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.4);
+<<<<<<< HEAD
 =======
 /* fontAwesome */
 .aSColor {
     color: rgb(94, 93, 93);
     padding: 0 20px;
 >>>>>>> origin
+=======
+}
+
+/* fontAwesome */
+.aSColor {
+  color: rgb(94, 93, 93);
+  padding: 0 20px;
+>>>>>>> tmp
 }
