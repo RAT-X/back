@@ -125,13 +125,15 @@ a {
   font-size: 18px;
 }
 
-
-.project_title {
-  padding-top: 30px;
+/* load_flowchart */
+.createProjectWrapper {
+  padding-top: 50px;
+  width: 100%;
+  height: auto;
+  text-align: center;
 }
 
-
-.project_box {
+.projectBox {
   display: inline-block;
   flex-direction: column;
   margin: 0 auto;
@@ -140,6 +142,11 @@ a {
   position: relative;
   background-color: #E5E5E5;
 }
+
+.projectTitle {
+  padding-top: 30px;
+}
+
 
 
 /* flowchart_page */
@@ -463,14 +470,15 @@ a {
   font-size: 22px;
 }
 
-.project_name_btn {
+/* load_flowchart > projectBtn */
+.projectNameBtn {
   width: 300px;
   position: absolute;
   top: 30%;
   left: 50px;
 }
 
-.create_project_btn {
+.projectCreateBtn {
   margin-top: 60px;
   margin-left: 250px;
   padding-top: 2px;

@@ -12,10 +12,10 @@
 
         <div class="createBtnWrapper">
             <div class="createBtnBox">
-                <a type="button" class="btn btn-success createBtn" href="{{ url('/load_flowchart') }}"><i class="bi bi-arrow-up-right-square" style="font-size: 1.5rem"></i> &ensp;作成済みの<br>プロジェクトを開く</a>
+                <a type="button" class="btn btn-success" href="{{ url('/load_flowchart') }}"><i class="bi bi-arrow-up-right-square" style="font-size: 1.5rem"></i> &ensp;作成済みの<br>プロジェクトを開く</a>
             </div>
             <div class="createBtnBox">
-                <a type="button" class="btn btn-primary choice_btn" href="{{ url('/create_flowchart') }}"><i class="bi bi-arrow-down-right-square" style="font-size: 1.5rem"></i> &ensp;新規作成</a>
+                <a type="button" class="btn btn-primary" href="{{ url('/create_flowchart') }}"><i class="bi bi-arrow-down-right-square" style="font-size: 1.5rem"></i> &ensp;新規作成</a>
             </div>
             <form action="{{ route('logout') }}" method="post">
                 @csrf
