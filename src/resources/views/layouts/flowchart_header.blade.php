@@ -1,4 +1,4 @@
-<header id="header_wrapper">
+<header id="headerWrapper">
 
     <div id="left_btn_area" class="user_btn">
       <a href="">users</a>

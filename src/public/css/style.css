@@ -14,7 +14,7 @@ a {
 }
 
 /* header */
-#header_wrapper {
+#headerWrapper {
   width: 1443px;
   height: 50px;
   display: flex;
@@ -488,12 +488,6 @@ a {
   border-radius: 10px;
 }
 
-.box_shadow {
-  display: flex;
-  border-radius: 3px;
-  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.4);
-}
-
 .how_to_btn {
   width: 80px;
   height: 29px;
@@ -513,4 +507,11 @@ a {
   padding: 1em;
   border: 1px solid #a9a9a9;
   box-shadow: 3px 3px 6px #696969;
+}
+
+/* boxShadow */
+.box_shadow {
+  display: flex;
+  border-radius: 3px;
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.4);
 }
