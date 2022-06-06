@@ -68,44 +68,68 @@ a {
   font-size: 18px;
 }
 
-/* main_page */
-.page_wrapper {
+/* topPage */
+.mainPageWrapper {
   padding-top: 100px;
   width: 100%;
   height: 100vh;
   background-color: #fff;
 }
 
-.welcome_message {
-  margin-left: 500px;
-}
-
-.create_message {
+.messageBox {
   text-align: center;
 }
 
-.message_wrapper {
-  text-align: center;
-}
-
-.login_wrapper {
+.loginBoxWrapper {
   padding-top: 50px;
   width: 100%;
   height: auto;
   text-align: center;
 }
 
-.project_title {
-  padding-top: 30px;
-}
-
-.login_box {
+.loginBox {
   display: inline-block;
   flex-direction: column;
   margin: 0 auto;
   width: 400px;
   height: 300px;
 }
+
+/* WelcomePage */
+.welcomeMessageBox {
+  margin-left: 500px;
+}
+
+.createBoxWrapper {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-flow: column;
+  padding-top: 50px;
+  margin: 0 auto;
+}
+
+.createMessageBox {
+  text-align: center;
+}
+
+.createBtnWrapper {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+}
+
+.createBtnBox {
+  margin-top: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+
+.project_title {
+  padding-top: 30px;
+}
+
 
 .project_box {
   display: inline-block;
@@ -117,15 +141,6 @@ a {
   background-color: #E5E5E5;
 }
 
-/* welcome_page */
-.welcome_wrapper {
-  width: 500px;
-  height: 500px;
-  display: flex;
-  flex-flow: column;
-  padding-top: 50px;
-  margin: 0 auto;
-}
 
 /* flowchart_page */
 .flowchart_page_wrapper {
@@ -378,7 +393,8 @@ a {
   margin-top: 70px;
 }
 
-/* btn */
+/* btnClassArea */
+/* userBtn */
 .user_btn a {
   background: #eee;
   border-radius: 50px;
@@ -439,7 +455,8 @@ a {
   background: linear-gradient(270deg, rgba(117,188,255,1) 0%, rgba(62,159,252,1) 100%);
 }
 
-.login_register_btn {
+/* topPage > loginBtn */
+.loginBtn {
   width: 80%;
   margin-top: 50px;
   border-radius: 20px;
@@ -461,18 +478,6 @@ a {
   width: 110px;
   font-size: 20px;
   border-radius: 10px;
-}
-
-.choice_btn_wrapper {
-  display: flex;
-  flex-flow: column;
-  align-items: flex-end;
-}
-
-.choice_btn {
-  margin-top: 10px;
-  border-radius: 10px;
-  font-size: 18px;
 }
 
 .box_shadow {
