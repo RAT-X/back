@@ -1,9 +1,9 @@
 /* 共通アイテム */
 body {
-    padding: 0;
-    margin: 0 auto;
-    width: 1443px;
-    height: 820px;
+  padding: 0;
+  margin: 0 auto;
+  width: 1443px;
+  height: 820px;
 }
 
 ul {
@@ -15,7 +15,7 @@ a {
 }
 
 /* header */
-#header_wrapper {
+#headerWrapper {
   width: 1443px;
   height: 50px;
   display: flex;
@@ -24,7 +24,7 @@ a {
   background-color: #30499d;
 }
 
-#left_btn_area {
+#leftBtnArea {
   width: 10%;
   margin: 10px 0;
   text-align: center;
@@ -57,38 +57,38 @@ a {
   justify-content: flex-start;
 }
 
-/* main_page */
-.page_wrapper {
-  padding: 100px;
+#left_area li {
+  padding: 0 10px;
+  margin: 0 10px;
+  font-size: 18px;
+}
+
+#right_area li {
+  padding: 0 10px;
+  margin: 0 10px;
+  font-size: 18px;
+}
+
+/* topPage */
+.mainPageWrapper {
+  padding-top: 100px;
   width: 100%;
   height: 100vh;
   background-color: #fff;
 }
 
-.welcome_message {
-  margin-left: 500px;
-}
-
-.create_message {
+.messageBox {
   text-align: center;
 }
 
-.message_wrapper {
-  text-align: center;
-}
-
-.login_wrapper {
+.loginBoxWrapper {
   padding-top: 50px;
   width: 100%;
   height: auto;
   text-align: center;
 }
 
-.project_title {
-  padding-top: 30px;
-}
-
-.login_box {
+.loginBox {
   display: inline-block;
   flex-direction: column;
   margin: 0 auto;
@@ -96,7 +96,45 @@ a {
   height: 300px;
 }
 
-.project_box {
+/* WelcomePage */
+.welcomeMessageBox {
+  margin-left: 500px;
+}
+
+.createBoxWrapper {
+  width: 500px;
+  height: 500px;
+  display: flex;
+  flex-flow: column;
+  padding-top: 50px;
+margin: 0 auto;
+}
+
+.createMessageBox {
+text-align: center;
+}
+
+.createBtnWrapper {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+}
+
+.createBtnBox {
+  margin-top: 10px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
+/* load_flowchart */
+.createProjectWrapper {
+  padding-top: 50px;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.projectBox {
   display: inline-block;
   flex-direction: column;
   margin: 0 auto;
@@ -106,34 +144,18 @@ a {
   background-color: #E5E5E5;
 }
 
-/* welcome_page */
-.welcome_wrapper {
-  width: 500px;
-  height: 500px;
-  display: flex;
-  flex-flow: column;
-  padding-top: 50px;
-  margin: 0 auto;
+.projectTitle {
+  padding-top: 30px;
 }
 
+
+
 /* flowchart_page */
-.flowchart_page_wrapper {
+.flowChartPageWrapper {
   padding-top: 60px;
   width: 1443px;
   height: 100%;
   background-color: #E5E5E5;
-<<<<<<< HEAD
-}
-
-#titleAreaWrapper {
-  position: relative;
-  display: table-cell;
-  width: 228px;
-  height: 100%;
-  padding: 10px;
-=======
-  z-index: 1;
->>>>>>> refs/remotes/origin/master
 }
 
 #titleArea {
@@ -148,12 +170,7 @@ a {
 }
 
 #flowChartArea {
-<<<<<<< HEAD
-  display: table-cell;
-  width: 900px;
-=======
   width: 937px;
->>>>>>> refs/remotes/origin/master
   height: 100%;
   position: relative;
   top: 0;
@@ -177,17 +194,13 @@ a {
 }
 
 /* titleArea */
-.user_project_box {
+.userProjectBox {
   width: 220px;
   height: 150px;
   border: none;
   border-radius: 20px;
   background-color: #FBFCFB;
   box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.4);
-}
-
-.plus_btn_wrapper {
-  margin-left: 80%;
 }
 
 /* functionArea */
@@ -383,7 +396,8 @@ a {
   margin-top: 70px;
 }
 
-/* btn */
+/* btnClassArea */
+/* userBtn */
 .user_btn a {
   background: #eee;
   border-radius: 50px;
@@ -400,8 +414,8 @@ a {
 }
 
 .user_btn a:hover {
-  background: #313131;
-  color: #FFF;
+background: #313131;
+color: #FFF;
 }
 
 .user_btn a:after {
@@ -419,7 +433,7 @@ a {
 }
 
 .user_btn a:hover:after {
-  border-color: #FFF;
+border-color: #FFF;
 }
 
 /* share_btn */
@@ -444,21 +458,23 @@ a {
   background: linear-gradient(270deg, rgba(117,188,255,1) 0%, rgba(62,159,252,1) 100%);
 }
 
-.login_register_btn {
+/* topPage > loginBtn */
+.loginBtn {
   width: 80%;
   margin-top: 50px;
   border-radius: 20px;
   font-size: 22px;
 }
 
-.project_name_btn {
+/* load_flowchart > projectBtn */
+.projectNameBtn {
   width: 300px;
   position: absolute;
   top: 30%;
   left: 50px;
 }
 
-.create_project_btn {
+.projectCreateBtn {
   margin-top: 60px;
   margin-left: 250px;
   padding-top: 2px;
@@ -466,24 +482,6 @@ a {
   width: 110px;
   font-size: 20px;
   border-radius: 10px;
-}
-
-.choice_btn_wrapper {
-  display: flex;
-  flex-flow: column;
-  align-items: flex-end;
-}
-
-.choice_btn {
-  margin-top: 10px;
-  border-radius: 10px;
-  font-size: 18px;
-}
-
-.box_shadow {
-  display: flex;
-  border-radius: 3px;
-  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.4);
 }
 
 .how_to_btn {
@@ -507,8 +505,15 @@ a {
   box-shadow: 3px 3px 6px #696969;
 }
 
+/* boxShadow */
+.box_shadow {
+  display: flex;
+  border-radius: 3px;
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.4);
+}
+
 /* fontAwesome */
 .aSColor {
-    color: rgb(94, 93, 93);
-    padding: 0 20px;
+  color: rgb(94, 93, 93);
+  padding: 0 20px;
 }
