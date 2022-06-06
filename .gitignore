@@ -2,3 +2,4 @@
 /data
 /logs
 docker-compose.yml.for_k
+src\database\seeders\UsersTableSeeder.php
