@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class UsersTableSeeder extends Seeder
 {
@@ -17,10 +19,10 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => 'test',
             'email' => 'test@example.com',
-            'email_verified_at' => 'test@example.com',
+            'email_verified_at' => Carbon::now(),
             'password' => '',
-            'created_at' => Carbon::now,
-            'updated_at' => Carbon::now,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
     }
 }

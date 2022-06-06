@@ -15,10 +15,9 @@ class CreateContentsTable extends Migration
     {
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
-            $table->int('chart_id')->unsigned();
-            $table->foreign('chart_id')->references('id')->on('charts');
-            $table->int('column');
-            $table->int('row');
+            $table->foreignId('chart_id')->constrained('charts');
+            $table->integer('column');
+            $table->integer('row');
             $table->string('branch_name');
             $table->text('content');
             $table->timestamps();

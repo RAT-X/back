@@ -16,7 +16,7 @@ class ChartsTableSeeder extends Seeder
     public function run()
     {
         //初期test用Chart
-        DB::table('Charts')->insert([
+        DB::table('charts')->insert([
             'user_id' => 1,
             'project_title' => 'test_project',
             'created_at' => Carbon::now(),
