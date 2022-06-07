@@ -220,7 +220,8 @@ header {
     box-shadow: -2px 4px 1px rgb(80, 80, 80);
 }
 #branch p{
-    transform: rotate(45deg) skew(0deg, 0deg) translate(18px, 18px);
+    transform: skew(-30deg, -30deg) rotate(45deg) translate(35px, 10px);
+    font-size: 20px;
 }
 #process {
     background: #c4c4c4;
