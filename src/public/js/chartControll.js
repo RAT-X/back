@@ -199,7 +199,7 @@ function chengeBox(e){
 }
 
 let values;
-const btn = document.getElementById('btn');
+const btn = document.getElementsByClassName('fa-cloud-arrow-up')[0];
 
 btn.addEventListener('click',insertValue);
 function insertValue(){

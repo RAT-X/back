@@ -5,9 +5,6 @@
     --set-border-width: 3px;
     --set-height: 30px;
 }
-#flowChartArea{
-    display: flex;
-}
 #temporalyArea {
     display: block;
     max-width: var(--set-width);
