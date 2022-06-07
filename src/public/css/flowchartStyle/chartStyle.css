@@ -1,0 +1,269 @@
+@charset "utf-8";
+
+:root {
+    --set-width: 200px;
+    --set-border-width: 3px;
+    --set-height: 30px;
+}
+#flowChartArea{
+    display: flex;
+}
+#temporalyArea {
+    display: block;
+    max-width: var(--set-width);
+    overflow-wrap: break-word;
+    opacity: 0;
+}
+
+/* フローチャート内共通アイテム */
+.area {
+    display: flex;
+    flex-direction: column;
+}
+.evenArea {
+    width: calc(var(--set-width)/2);
+}
+.oddArea {
+    width: var(--set-width);
+}
+.empty {
+    width: var(--ser-width);
+    min-height: var(--set-height);
+}
+.itemBox {
+    min-height: var(--set-height);
+    text-align: center;
+    font-size: 15px;
+    width: var(--set-width);
+    margin: 0;
+    padding: 3px 15px;
+    box-sizing:border-box;
+    overflow-wrap: break-word;
+}
+#temporaly {
+    display: inline-block;
+    width: 150px;
+    min-height: 30px;
+    font-size: 15px;
+    overflow-wrap: break-word;
+    opacity: 0;
+}
+textarea {
+    resize: none;
+    margin: 0;
+}
+
+textarea {
+    font-size: 15px;
+    margin-top: 8px;
+    width: 6px;
+    max-width: calc(var(--set-width)*0.8);
+    height: 10px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+p{
+    margin: 0;
+}
+
+/* startEnd */
+.startEnd {
+    background: rgb(109, 225, 109);
+    border-radius: 30px;
+}
+/* branch */
+.branch {
+    background-image: url(./img/Rectangle3.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+/* process */
+.process {
+    background: #c4c4c4;
+}
+/* input */
+.input {
+    background: #c4c4c4;
+    transform: skewX(-10deg);
+}
+.input p {
+    transform: skewX(10deg);
+}
+/* roopStart */
+.roopStart {
+    display: inline-block;
+    background: #ef9ef6;
+    position: relative;
+}
+.roopStart::before {
+    position: absolute;
+    content: '';
+    height: 20px;
+    width: 20px;
+    top: -1px;
+    left: -1px;
+    background: #fff;
+    clip-path: polygon(0 0, 0% 20px, 20px 0%);
+}
+.roopStart::after {
+    position: absolute;
+    content: '';
+    height: 20px;
+    width: 20px;
+    top: -1px;
+    left: calc(var(--set-width)*0.91);
+    background: #fff;
+    clip-path: polygon(0 0, 0% 20px, 20px 0%);
+    transform: rotate(90deg);
+}
+/* roopEnd */
+.roopEnd {
+    display: inline-block;
+    background: #ef9ef6;
+    position: relative;
+}
+.roopEnd:before {
+    position: absolute;
+    content: '';
+    height: 22px;
+    width: 22px;
+    bottom: -4px;
+    left: -4px;
+    background: #fff;
+    clip-path: polygon(0 0, 0% 22px, 22px 0%);
+    transform: rotate(-90deg);
+}
+.roopEnd:after {
+    position: absolute;
+    content: '';
+    height: 22px;
+    width: 22px;
+    bottom: -4px;
+    right: -4px;
+    background: #fff;
+    clip-path: polygon(0 0, 0% 22px, 22px 0%);
+    transform: rotate(180deg);
+}
+/* display */
+.display {
+    background: url(./img/Rectangle14.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+/* connectOut */
+.connectOut {
+    background: #c4c4c4;
+    width: 30px;
+	height: 30px;
+	border-radius: 50%;
+    margin: 0 calc(50% - 16px);
+}
+/* connectIn */
+.connectIn {
+    position: relative;
+    background: #c4c4c4;
+    width: 30px;
+	height: 35px;
+    margin: 0 calc(50% - 16px);
+    z-index:-1;
+}
+.connectIn:before {
+    position: absolute;
+    content: '';
+    left: 0px;
+    bottom: 0px;
+    border: none;
+    border-left: solid 15px #fff;
+    border-bottom: solid 10px transparent;
+    transform: rotateX(180deg);
+    z-index:-2;
+}
+.connectIn:after {
+    position: absolute;
+    content: '';
+    right: 0px;
+    bottom: 0px;
+    border: none;
+    border-left: solid 15px #fff;
+    border-bottom: solid 10px transparent;
+    transform: rotate(180deg);
+    z-index:-2;
+}
+
+/* 強調クラス設定 */
+.strongBE {
+    border: var(--set-border-width) solid #477426;
+}
+.strongBr {
+    background-image: url(./img/Rectangle3st.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.strongPr {
+    border: var(--set-border-width) solid #4a4a4a;
+}
+.strongIn {
+    border: var(--set-border-width) solid #4a4a4a;
+}
+.strongLs {
+    position: relative;
+    border: var(--set-border-width) solid #865b8a;
+}
+.strongLs:before {
+    position: absolute;
+    content: '';
+    height: 22px;
+    width: 22px;
+    top: -3.2px;
+    left: -3.2px;
+    background: linear-gradient(-45deg, #865b8a 35% 65%, #fff 65%);
+    clip-path: polygon(0 0, 0% 20px, 20px 0%);
+}
+.strongLs:after {
+    position: absolute;
+    content: '';
+    height: 22px;
+    width: 22px;
+    top: -3.25px;
+    left: calc(var(--set-width)*0.876);
+    background: linear-gradient(-45deg, #865b8a 35% 65%, #fff 65%);
+    clip-path: polygon(0 0, 0% 20px, 20px 0%);
+    transform: rotate(90deg);
+}
+.strongLe {
+    position: relative;
+    border: var(--set-border-width) solid #865b8a;
+}
+.strongLe:before {
+    position: absolute;
+    content: '';
+    height: 22px;
+    width: 22px;
+    bottom: -3.2px;
+    left: -3.2px;
+    background: linear-gradient(-45deg, #865b8a 35% 65%, #fff 65%);
+    clip-path: polygon(0 0, 0% 20px, 20px 0%);
+}
+.strongLe:after {
+    position: absolute;
+    content: '';
+    height: 22px;
+    width: 22px;
+    bottom: -3px;
+    left: calc(var(--set-width)*0.876);
+    background: linear-gradient(-45deg, #865b8a 35% 65%, #fff 65%);
+    clip-path: polygon(0 0, 0% 20px, 20px 0%);
+    transform: rotate(180deg);
+}
+.strongDp {
+    background: url(./img/Rectangle15.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;/*修正の必要あり*/
+}
