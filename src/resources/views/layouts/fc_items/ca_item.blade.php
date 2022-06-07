@@ -1,35 +1,22 @@
 <section id="confirmationArea">
-    @for($i = 0; $i < 4; $i++)
-        <div id="startEnd" class="flowchart_items">
-            <div class="fontClass">start&stop</div>
+    @php
+        $boxname = [
+            'startEnd' => 'Start&Stop',
+            'branch' => 'If',
+            'process' => 'Process',
+            'input' => 'Input',
+            'loopStart' => 'LoopStart',
+            'loopEnd' => 'LoopEnd',
+            'display' => 'Display',
+            'connectOut' => 'o',
+            'connectIn' => 'i',
+        ];
+    @endphp
+    @foreach($boxname as $boxid => $boxname)
+        <div class="cbBox">
+            <div id="{{ $boxid }}" class="confirmationBlock">
+                <p>{{ $boxname }}</p>
+            </div>
         </div>
-    @endfor
-    <div id="startEnd" class="flowchart_items">
-        <div class="fontClass">start&stop</div>
-    </div>
-    <div id="branch" class="flowchart_items">
-        <div id="branchFontReset">
-            <p>if</p>
-        </div>
-    </div>
-    <div id="process" class="flowchart_items">
-        <div class="fontClass">process</div>
-    </div>
-    <div id="input" class="flowchart_items">
-        <div class="fontClass">input</div>
-    </div>
-    <div id="loopStart" class="flowchart_items">
-        <div class="fontClass">LoopStart</div>
-    </div>
-    <div id="loopEnd" class="flowchart_items">
-        <div class="fontClass">LoopEnd</div>
-    </div>
-    <div id="display" class="flowchart_items">
-    </div>
-    <div id="connectOut" class="flowchart_items">
-        <div class="fontClass">C</div>
-    </div>
-    <div id="connectIn" class="flowchart_items">
-        <div class="fontClass">I</div>
-    </div>
+    @endforeach
 </section>
