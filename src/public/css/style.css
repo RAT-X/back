@@ -57,10 +57,6 @@ a {
   justify-content: flex-start;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> tmp
 #left_area li {
   padding: 0 10px;
   margin: 0 10px;
@@ -112,19 +108,16 @@ a {
   display: flex;
   flex-flow: column;
   padding-top: 50px;
-<<<<<<< HEAD
   margin: 0 auto;
 }
 
 .createMessageBox {
   text-align: center;
-=======
-margin: 0 auto;
+  margin: 0 auto;
 }
 
 .createMessageBox {
 text-align: center;
->>>>>>> tmp
 }
 
 .createBtnWrapper {
@@ -160,8 +153,6 @@ text-align: center;
 .projectTitle {
   padding-top: 30px;
 }
-
-
 
 /* flowchart_page */
 .flowChartPageWrapper {
@@ -446,7 +437,7 @@ color: #FFF;
 }
 
 .user_btn a:hover:after {
-border-color: #FFF;
+ border-color: #FFF;
 }
 
 /* share_btn */
@@ -518,28 +509,16 @@ border-color: #FFF;
   box-shadow: 3px 3px 6px #696969;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> tmp
 /* boxShadow */
 .box_shadow {
   display: flex;
   border-radius: 3px;
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.4);
-<<<<<<< HEAD
-=======
-/* fontAwesome */
+}
+
+  /* fontAwesome */
 .aSColor {
     color: rgb(94, 93, 93);
     padding: 0 20px;
->>>>>>> origin
-=======
 }
-
-/* fontAwesome */
-.aSColor {
-  color: rgb(94, 93, 93);
-  padding: 0 20px;
->>>>>>> tmp
-}
+  
