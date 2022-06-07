@@ -210,6 +210,10 @@ header {
     height: 40px;
     padding-top: 9px;
 }
+.stBE {
+    border: 3.5px solid #335921;
+    box-sizing: border-box;
+}
 #branch {
     background: #c4c4c4;
     font-weight: bold;
@@ -218,6 +222,10 @@ header {
     padding-top: 0;
     transform: rotate(-45deg) skew(30deg, 30deg) translate(50px, -10px);
     box-shadow: -2px 4px 1px rgb(80, 80, 80);
+}
+.stBR {
+    border: 3px solid rgb(80, 80, 80);
+    box-sizing: border-box;
 }
 #branch p{
     transform: skew(-30deg, -30deg) rotate(45deg) translate(35px, 10px);
@@ -347,7 +355,7 @@ header {
     transform: translate(65px,35px);
 }
 #connectIn p {
-    transform: translate(1px,-6px);
+    transform: translate(1px,-8px);
 }
 #connectIn::before {
     position: absolute;
@@ -403,9 +411,17 @@ header {
 }
 .otherIcon {
     padding: 5px 1px 0 0;
+    color: rgb(180, 116, 76);
 }
 .textIcon {
     font-size: 30px;
     font-weight: bold;
     transform: translate(-4px , -6px);
+    color: rgb(180, 116, 76);
+}
+#mainToolItemBox .textTool .dashedBox p{
+    cursor: not-allowed;
+}
+.dashedBox .fa-solid:hover{
+    cursor: not-allowed;
 }

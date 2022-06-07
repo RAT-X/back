@@ -2,6 +2,10 @@ const allArea = document.querySelectorAll('.area');
 const input = document.createElement('textarea');
 const isHere = document.getElementsByClassName('isHere');
 
+/* ca初期値の設定 */
+const begin = document.getElementById('startEnd');
+begin.classList.add('stBE');
+
 /* スタイル整備 */
 // Area0のボックス初期値の成形
 const area0Arrows = allArea[0].getElementsByClassName('arrow');
