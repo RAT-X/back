@@ -165,6 +165,7 @@ header {
     width: 810px;
     height: 767px;
     margin: 0 auto;
+    padding-top: 60px;
     background-color: #fff;
     display: flex;
     overflow: auto;
