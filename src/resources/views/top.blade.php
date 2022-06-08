@@ -1,7 +1,6 @@
 @include("layouts.head")
 
 <div class="mainPageWrapper">
-
     <div class="messageBox">
         <h1>chartmanへようこそ</h1>
     </div>
@@ -19,5 +18,5 @@
 <p>USER: {{Auth::user()->name . ' (' . Auth::user()->email . ')'}}</p>
 @else
 <p>※ログインしていません。(<a href="/login">ログイン</a>|
-    <a href="/register">登録</a>)</p>
+    <a href="/register">登  録</a>)</p>
 @endif -->
