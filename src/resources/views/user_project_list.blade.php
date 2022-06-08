@@ -6,13 +6,13 @@
   </div>
 
   <div class="createProjectWrapper">
-    <div class="userProjectBox">Project 1
+    <div class="userProjectBoxList">Project 1
       <a class="userProjectBoxLink" href="{{ url('/') }}"></a>
     </div>
-    <div class="userProjectBox">Project 2
+    <div class="userProjectBoxList">Project 2
       <a class="userProjectBoxLink" href="{{ url('/') }}"></a>
     </div>
-    <div class="userProjectBox">Project 3
+    <div class="userProjectBoxList">Project 3
       <a class="userProjectBoxLink" href="{{ url('/') }}"></a>
     </div>
 
