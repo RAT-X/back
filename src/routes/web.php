@@ -21,6 +21,7 @@ Route::get('/load_flowchart', 'App\Http\Controllers\LoadFlowchartController@show
 Route::get('/flowchart', 'App\Http\Controllers\FlowchartPageController@show');
 
 Route::get('/user_project_list', 'App\Http\Controllers\UserProjectListController@show');
+Route::get('/flowchart_users', 'App\Http\Controllers\FlowchartUsersController@show');
 
 
 Auth::routes();
