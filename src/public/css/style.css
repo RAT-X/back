@@ -525,7 +525,17 @@ color: #FFF;
 }
 
 /* userProjectList */
-.userProjectBox .userProjectBoxLink {
+.userProjectBoxList {
+  width: 220px;
+  height: 150px;
+  border: none;
+  border-radius: 20px;
+  background-color: #FBFCFB;
+  box-shadow: 1px 1px 4px 0px rgba(0, 0, 0, 0.4);
+  margin-top: 30px;
+}
+
+.userProjectBoxList .userProjectBoxLink {
   display: block;
   position: relative;
   top: 0;
