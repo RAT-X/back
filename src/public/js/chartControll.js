@@ -207,7 +207,12 @@ const btn = document.getElementsByClassName('fa-cloud-arrow-up')[0];
 
 btn.addEventListener('click',insertValue);
 function insertValue(){
-    const imHTMLs = document.getElementById('flowChartArea');
-    values = imHTMLs;
+    const userChartItem = {};
+    const s = Symbol("usersChartData");
+    const imHTMLs = document.getElementById('flowChartArea').innerHTML;
+    const imJSONText = JSON.stringify(imHTMLs);
+    userChartItem[s] = imJSONText;
+    const jsonPerseText = imJSONText;
+    const values = jsonPerseText;
     console.log(values);
 }

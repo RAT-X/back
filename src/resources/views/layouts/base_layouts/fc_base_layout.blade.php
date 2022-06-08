@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>-- chartman --></title>
-
+    <script>
+        window.onload = function(){
+            const req = new XMLHttpRequest();
+        };
+    </script>
     @include("layouts.get_styles.fc_style")
     <script src="https://kit.fontawesome.com/d41d269103.js" crossorigin="anonymous"></script>
 </head>
@@ -22,7 +26,7 @@
                 <section id="titleArea">
                     @include("layouts.fc_items.title_area_item")
                 </section>
-                <section id="flowChatArea">
+                <section id="flowChartArea">
                     <div class="area evenArea area0">
                         <canvas class="arrow"></canvas>
                         <canvas class="arrow"></canvas>
