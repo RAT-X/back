@@ -159,9 +159,7 @@ header {
 #flowChatArea {
     position: absolute;
     top: calc(var(--header-height) - 40px);
-    left: 20%;
-    /* left: calc(var(--titleArea-width) + 80px); */
-    margin: 0 auto;
+    left: calc(var(--titleArea-width) + 30px);
     padding-top: 60px;
     background-color: #fff;
     z-index: 0;
