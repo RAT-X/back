@@ -11,7 +11,7 @@ class Chart extends Model
 
      // charts_tableと紐づけ
      protected $fillable = [
-        'user_id',
         'project_title',
+        'comment',
     ];
 }
