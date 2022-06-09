@@ -18,6 +18,9 @@ class CreateChartsTable extends Migration
             $table->foreignId('user_id')->constrained();
             $table->string('project_title');
             $table->timestamps();
+
+            // 追記
+            $table->string('name', 50);
         });
     }
 
