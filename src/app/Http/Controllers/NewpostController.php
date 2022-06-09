@@ -20,4 +20,10 @@ class NewpostController extends Controller
 
         post::insert(["project_title" => $project_title, "comment" => $comment]);
     }
+
+    //middlewareによる認証制限を追加
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 }
