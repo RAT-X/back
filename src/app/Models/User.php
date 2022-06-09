@@ -43,8 +43,8 @@ class User extends Authenticatable
     ];
 
     // userは複数のpostを持つという処理
-    public function posts()
+    public function charts()
     {
-        return $this->hasMany('App\Post');
+        return $this->hasMany('App\Chart');
     }
 }
