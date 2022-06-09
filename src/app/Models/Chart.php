@@ -14,4 +14,10 @@ class Chart extends Model
         'project_title',
         'comment',
     ];
+
+    // Chartsは1つのuserに属するという処理
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

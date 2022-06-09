@@ -42,6 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // userは複数のpostを持つという処理
     public function posts()
     {
         return $this->hasMany('App\Post');
