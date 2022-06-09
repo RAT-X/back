@@ -18,6 +18,6 @@ class NewpostController extends Controller
         $name = $request->input('project_title');
         $comment = $request->input('comment');
 
-        post::insert(["name" => $name, "comment" => $comment]);
+        post::insert(["project_title" => $project_title, "comment" => $comment]);
     }
 }
