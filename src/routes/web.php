@@ -24,14 +24,14 @@ Route::get('/flowchart', 'App\Http\Controllers\FlowchartPageController@show');
 Route::get('/user_project_list', 'App\Http\Controllers\UserProjectListController@show');
 Route::get('/newpost', 'App\Http\Controllers\NewpostController@Newpost');
 
-Route::get('/flowchart_users', 'App\Http\Controllers\FlowchartUsersController@index')
+Route::get('/flowchart_users', 'App\Http\Controllers\ProjectController@index')
 ->name('project.list');
-Route::get('/flowchart_user/new', 'App\Http\Controllers\FlowchartUsersController@create')
+Route::get('/flowchart_user/new', 'App\Http\Controllers\ProjectController@create')
 ->name('project.new');
-Route::get('/flowchart_user', 'App\Http\Controllers\FlowchartUsersController@store')
+Route::get('/flowchart_user', 'App\Http\Controllers\ProjectController@store')
 ->name('project.store');
 
-Route::get('/flowchart_user/{id}/{project_title}', 'App\Http\Controllers\FlowchartUsersController@show')
+Route::get('/flowchart_user/{id}/{project_title}', 'App\Http\Controllers\ProjectController@show')
 ->name('project.detail');
 // テスト用ここまで
 
