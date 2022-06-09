@@ -20,7 +20,7 @@ class CreateChartsTable extends Migration
             $table->timestamps();
 
             // 追記
-            $table->string('name', 50);
+            $table->string('name');
         });
     }
 

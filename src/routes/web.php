@@ -23,7 +23,7 @@ Route::get('/flowchart', 'App\Http\Controllers\FlowchartPageController@show');
 // test用
 Route::get('/user_project_list', 'App\Http\Controllers\UserProjectListController@show');
 Route::get('/flowchart_users', 'App\Http\Controllers\FlowchartUsersController@show');
-Route::get('/newpost, App\Http\Controllers\NewpostController@Newpost');
+Route::get('/newpost', 'App\Http\Controllers\NewpostController@Newpost');
 // テスト用ここまで
 
 Auth::routes();
