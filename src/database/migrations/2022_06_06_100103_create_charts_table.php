@@ -19,7 +19,6 @@ class CreateChartsTable extends Migration
             $table->string('project_title');
             $table->timestamps();
 
-            // 追記
             $table->string('comment');
         });
     }
