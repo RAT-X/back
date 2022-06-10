@@ -8,8 +8,8 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        // return view('flowchart');
-        return view('project');
+        $projects = Project::all();
+        return view('project', ['projects' => $projects]);
     }
 
     public function store(Request $request)
