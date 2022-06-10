@@ -44,6 +44,20 @@ services:
     volumes:
       - mysql-volume:/var/lib/mysql
 
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    # depends_on:
+    #   - app
+    #environment:
+      #- PMA_ARBITRARY=1
+      #- PMA_HOSTS=app
+      #- PMA_USER=${DB_USER}
+      #- PMA_PASSWORD=${DB_PASSWORD}
+    restart: always
+    ports:
+      - "3000:80"
+    volumes:
+      - ./docker/phpmyadmin/sessions:/sessions
     #   - ./data:/var/lib/mysql
     #   - ./logs:/var/log/mysql
     # command: bash -c 'usermod -o -u $LINUX_MYSQL_UID mysql; groupmod -o -g $LINUX_MYSQL_GID mysql; chown -R mysql:root /var/run/mysqld/ /var/log/mysql/ /var/lib/mysql/; /entrypoint.sh mysqld --user=mysql --console'
