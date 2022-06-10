@@ -24,15 +24,15 @@ Route::get('/flowchart', 'App\Http\Controllers\FlowchartPageController@show');
 Route::get('/user_project_list', 'App\Http\Controllers\UserProjectListController@show');
 Route::get('/newpost', 'App\Http\Controllers\NewpostController@Newpost');
 
-Route::get('/flowchart_users', 'App\Http\Controllers\ProjectController@index')
-->name('project.list');
-Route::get('/flowchart_user/new', 'App\Http\Controllers\ProjectController@create')
-->name('project.new');
-Route::get('/flowchart_user', 'App\Http\Controllers\ProjectController@store')
-->name('project.store');
+Route::get('/projects', 'App\Http\Controllers\ProjectController@index')
+->name('/project.list'); // 一覧表示
+Route::get('/project/new', 'App\Http\Controllers\ProjectController@create')
+->name('project.new'); // 新規作成
+Route::get('/project', 'App\Http\Controllers\ProjectController@store')
+->name('project.store'); // 保存
 
 Route::get('/flowchart_user/{id}/{project_title}', 'App\Http\Controllers\ProjectController@show')
-->name('project.detail');
+->name('project.detail'); // 作成済みプロジェクトを開く(詳細ページ)
 // テスト用ここまで
 
 Auth::routes();

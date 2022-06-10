@@ -16,5 +16,9 @@
       <a class="userProjectBoxLink" href="{{ url('/') }}"></a>
     </div>
 
+    <div>
+      <a href={{ route('project.new') }} class="btn btn-outline-primary">新しいプロジェクト</a>
+    </div>
+
   </div>
 </div>

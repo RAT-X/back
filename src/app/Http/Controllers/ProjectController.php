@@ -6,12 +6,24 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    public function show() {
+    public function index()
+    {
         // return view('flowchart');
-        return view('layouts.base_layouts.fc_base_layout');
+        return view('project');
     }
 
-    public function create() {
+    public function store(Request $request)
+    {
+        $newpost = new Newpost;
+        $newpost->name = request('name');
+        $newpost->comment = request('comment');
+        $newpost->category_id = request('category_id');
+        $newpost->save();
+        return redirect()->route('shop.detail', ['id' => $newpost->id]);
+    }
+
+    public function create()
+    {
 
     }
 
