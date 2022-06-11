@@ -6,9 +6,8 @@
 
   @foreach ($projects as $project)
     <p>
-      {{ $shop->category->name }},
-      {{ $project->project_title }},
-      {{ $project->comment }}
+      {{ $project->project_id }},
+      {{ $project->comment }} 
     </p>
 
   <div>

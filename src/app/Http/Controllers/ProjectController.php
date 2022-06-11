@@ -9,7 +9,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
-        return view('project', ['projects' => $projects]);
+        return view('project_list', ['projects' => $projects]);
     }
 
     public function store(Request $request)

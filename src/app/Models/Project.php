@@ -9,8 +9,5 @@ class Project extends Model
 {
     use HasFactory;
 
-    public function charts()
-    {
-        return $this->hasOne('App\Models\Project');
-    }
+    
 }

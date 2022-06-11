@@ -18,9 +18,8 @@ class CreateChartsTable extends Migration
             // $table->foreignId('user_id')->constrained();
             $table->timestamps();
 
-            $table->string('comment');
             $table->integer('project_id');
-
+            $table->string('comment');
         });
     }
 
