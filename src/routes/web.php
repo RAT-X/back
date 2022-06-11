@@ -38,3 +38,7 @@ Route::get('/flowchart_user/{id}/{project_title}', 'App\Http\Controllers\Project
 Auth::routes();
 
 Route::get('/top', [App\Http\Controllers\TopPageController::class, 'index'])->name('top');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
