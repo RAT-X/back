@@ -5,12 +5,12 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>-- chartman --></title>
-    <script>
+    <title>-- {{ config('app.name', 'Chartman') }} --></title>
+    <!-- <script>
         window.onload = function(){
             const req = new XMLHttpRequest();
         };
-    </script>
+    </script> -->
     @include("layouts.get_styles.fc_style")
     <script src="https://kit.fontawesome.com/d41d269103.js" crossorigin="anonymous"></script>
 </head>

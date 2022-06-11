@@ -12,6 +12,8 @@
     @include("layouts.get_styles.fc_style")
 </head>
 <body>
-    <div id="app"></div>
+    <div id="app">
+        
+    </div>
 </body>
 </html>
