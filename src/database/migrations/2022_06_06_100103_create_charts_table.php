@@ -15,7 +15,7 @@ class CreateChartsTable extends Migration
     {
         Schema::create('charts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
+            // $table->foreignId('user_id')->constrained();
             $table->timestamps();
 
             $table->string('comment');
