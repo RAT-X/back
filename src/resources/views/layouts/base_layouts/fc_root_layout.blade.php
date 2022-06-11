@@ -9,8 +9,7 @@
     <title>-- {{ config('app.name', 'Chartman') }} --></title>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <!-- <link href="https://fonts.googleapis.com/css?family=Nuinto" rel="stylesheet"> -->
-    <!-- <link href="{{ asset('css.app.css')}}" rel="stylesheet"> -->
+    @include("layouts.get_styles.fc_style")
 </head>
 <body>
     <div id="app"></div>
