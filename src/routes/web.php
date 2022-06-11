@@ -33,6 +33,10 @@ Route::get('/project', 'App\Http\Controllers\ProjectController@store')
 
 Route::get('/flowchart_user/{id}/{project_title}', 'App\Http\Controllers\ProjectController@show')
 ->name('project.detail'); // 作成済みプロジェクトを開く(詳細ページ)
+
+Route::get('/', function(){
+    return redirect('/projects');
+});
 // テスト用ここまで
 
 Auth::routes();
