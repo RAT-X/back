@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chart;
 use Illuminate\Http\Request;
 
-class ProjectController extends Controller
+class ChartController extends Controller
 {
+    public function index()
+    {
+        $charts = Chart::all();
+        return view('project_list', ['charts' => $charts]);
+    }
 
     // public function store(Request $request)
     // {
@@ -16,15 +22,4 @@ class ProjectController extends Controller
     //     $newpost->save();
     //     return redirect()->route('shop.detail', ['id' => $newpost->id]);
     // }
-
-    public function create()
-    {
-
-    }
-
-    //middlewareによる認証制限を追加
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 }
