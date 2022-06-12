@@ -15,11 +15,11 @@ class CreateChartsTable extends Migration
     {
         Schema::create('charts', function (Blueprint $table) {
             $table->id();
-            // $table->foreignId('user_id')->constrained();
-            $table->timestamps();
-
+            $table->foreignId('user_id')->constrained();
             $table->integer('project_id');
             $table->string('comment');
+
+            $table->timestamps();
         });
     }
 

@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             ChartsTableSeeder::class,
             ContentsTableSeeder::class,
+            
+            ProjectsTableSeeder::class,
         ]);
     }
 }
