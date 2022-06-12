@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    use HasFactory;
+    public function chart()
+    {
+        return $this->hasOne(App\Models\Chart);
+    }
 
-    
 }

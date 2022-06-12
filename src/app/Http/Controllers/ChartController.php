@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Chart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ChartController extends Controller
 {
     public function index()
     {
-        $charts = Chart::all();
-        return view('project_list', ['charts' => $charts]);
+        // $charts = DB::table('charts')->get();
+        $charts = \App\Models\Chart::all();
+
+        return view('project_list', compact('charts'));
     }
 
     // public function store(Request $request)

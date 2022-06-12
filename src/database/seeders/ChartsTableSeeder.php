@@ -17,27 +17,29 @@ class ChartsTableSeeder extends Seeder
     {
         //初期test用Chart
         DB::table('charts')->insert([
-            'user_id' => 1,
-            'project_id' => 1,
-            'comment' => '最初のプロジェクト',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
-
-        DB::table('charts')->insert([
-            'user_id' => 1,
-            'project_id' => 2,
-            'comment' => '2つ目のプロジェクト',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-        ]);
-
-        DB::table('charts')->insert([
-            'user_id' => 1,
-            'project_id' => 3,
-            'comment' => '3つ目のプロジェクト',
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
+        //     [
+        //         //初期test用Chart
+        //     DB::table('charts')->insert([
+        //     'user_id' => 1,
+        //     'project_title' => 'test_project',
+        //     'created_at' => Carbon::now(),
+        //     'updated_at' => Carbon::now(),
+        // ]);
+            [
+                'user_id' => 1,
+                'project_id' => 1,
+                'comment' => '最初のプロジェクト',
+            ],
+            [
+                'user_id' => 1,
+                'project_id' => 2,
+                'comment' => '2つ目のプロジェクト',
+            ],
+            [
+                'user_id' => 1,
+                'project_id' => 3,
+                'comment' => '3つ目のプロジェクト',
+            ],
         ]);
     }
 }
