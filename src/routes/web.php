@@ -43,6 +43,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
 // 後で消す
 Route::get('/posttester', function(){
     return view('json_post_tester');
