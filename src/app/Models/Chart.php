@@ -21,7 +21,7 @@ class Chart extends Model
 
     public function project()
     {
-        return $this->belongsTo('App\Models\Project', 'name');
+        return $this->belongsTo('App\Models\Project');
     }
 
 

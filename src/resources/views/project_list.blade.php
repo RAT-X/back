@@ -6,7 +6,8 @@
 
   @foreach ($charts as $chart)
     <p>
-      {{ $chart->project->name??'匿名' }},
+      {{ $chart->project->project_number }},
+      {{ $chart->project->name }},
 
       {{ $chart->user_id }},
       {{ $chart->project_id }},
