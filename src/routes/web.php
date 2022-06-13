@@ -21,7 +21,6 @@ Route::get('/load_flowchart', 'App\Http\Controllers\LoadFlowchartController@show
 Route::get('/flowchart', 'App\Http\Controllers\FlowchartPageController@show');
 
 // test用
-// Route::get('/user_project_list', 'App\Http\Controllers\UserProjectListController@show');
 Route::get('/newpost', 'App\Http\Controllers\NewpostController@Newpost');
 
 Route::get('/projects', 'App\Http\Controllers\ChartController@index')
@@ -31,7 +30,7 @@ Route::get('/project/new', 'App\Http\Controllers\ProjectController@create')
 Route::get('/project', 'App\Http\Controllers\ProjectController@store')
 ->name('project.store'); // 保存
 
-Route::get('/flowchart_user/{id}/{project_title}', 'App\Http\Controllers\ProjectController@show')
+Route::get('/flowchart_user/{project_number}/{name}', 'App\Http\Controllers\ProjectController@show')
 ->name('project.detail'); // 作成済みプロジェクトを開く(詳細ページ)
 
 Route::get('/', function() {
