@@ -15,6 +15,12 @@ class ChartController extends Controller
         return view('project_list', compact('charts'));
     }
 
+    public function show($project_number, $name)
+    {
+        $chart = Chart::find($project_number, $name);
+        return view('show', ['chart' => $chart]);
+    }
+
     // public function store(Request $request)
     // {
     //     $newpost = new Newpost;
