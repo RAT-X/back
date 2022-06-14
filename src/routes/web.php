@@ -23,15 +23,18 @@ Route::get('/flowchart', 'App\Http\Controllers\FlowchartPageController@show');
 // test用
 Route::get('/newpost', 'App\Http\Controllers\NewpostController@Newpost');
 
-Route::get('/projects', 'App\Http\Controllers\ChartController@index')
-->name('/project.list'); // 一覧表示
+Route::get('/projects', 'App\Http\Controllers\ChartController@index')->name('/project.list'); // 一覧表示
+
+Route::get('/project/{project_number}/{name}', 'App\Http\Controllers\ChartController@show')
+->name('project.detail'); // 作成済みプロジェクトを開く(詳細ページ)
+
+
 Route::get('/project/new', 'App\Http\Controllers\ProjectController@create')
 ->name('project.new'); // 新規作成
 Route::get('/project', 'App\Http\Controllers\ProjectController@store')
 ->name('project.store'); // 保存
 
-Route::get('/flowchart_user/{project_number}/{name}', 'App\Http\Controllers\ProjectController@show')
-->name('project.detail'); // 作成済みプロジェクトを開く(詳細ページ)
+
 
 Route::get('/', function() {
     return redirect('/projects');
