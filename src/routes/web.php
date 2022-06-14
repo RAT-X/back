@@ -23,7 +23,8 @@ Route::get('/flowchart', 'App\Http\Controllers\FlowchartPageController@show');
 // test用
 Route::get('/newpost', 'App\Http\Controllers\NewpostController@Newpost');
 
-Route::get('/projects', 'App\Http\Controllers\ChartController@index')->name('/project.list'); // 一覧表示
+Route::get('/projects', 'App\Http\Controllers\ChartController@index')
+->name('/project.list'); // 一覧表示
 
 Route::get('/project/{project_number}/{name}', 'App\Http\Controllers\ChartController@show')
 ->name('project.detail'); // 作成済みプロジェクトを開く(詳細ページ)

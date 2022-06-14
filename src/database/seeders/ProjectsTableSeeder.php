@@ -18,15 +18,15 @@ class ProjectsTableSeeder extends Seeder
         DB::table('projects')->insert([
             [
                 'project_number' => 1,
-                'name' => 'First Project',
+                'name' => 'FirstProject',
             ],
             [
                 'project_number' => 2,
-                'name' => 'Second Project',
+                'name' => 'SecondProject',
             ],
             [
                 'project_number' => 3,
-                'name' => 'Third Project',
+                'name' => 'ThirdProject',
             ],
         ]);
     }
