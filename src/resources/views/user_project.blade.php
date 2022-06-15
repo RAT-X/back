@@ -2,7 +2,7 @@
 
 <div class="mainPageWrapper">
 
-  <h1>{{ $chart->project->name</h1>
+  <h1>{{ $chart->project->name }}</h1>
 
   <div>
     <p>{{ $chart->project->project_number }}</p>

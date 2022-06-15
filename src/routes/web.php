@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,7 @@ Route::get('/newpost', 'App\Http\Controllers\NewpostController@Newpost');
 Route::get('/projects', 'App\Http\Controllers\ChartController@index')
 ->name('/project.list'); // 一覧表示
 
-Route::get('/project/{project_number}/{name}', 'App\Http\Controllers\ChartController@show')
+Route::get('/project/{id}', 'App\Http\Controllers\ChartController@show')
 ->name('project.detail'); // 作成済みプロジェクトを開く(詳細ページ)
 
 
