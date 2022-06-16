@@ -27,7 +27,7 @@ Route::get('/newpost', 'App\Http\Controllers\NewpostController@Newpost');
 Route::get('/projects', 'App\Http\Controllers\ProjectController@index')
 ->name('/project.list'); // 一覧表示
 
-Route::get('/project/{id}', 'App\Http\Controllers\ChartController@show')
+Route::get('/project/{project_number}', 'App\Http\Controllers\ProjectController@show')
 ->name('project.detail'); // 作成済みプロジェクトを開く(詳細ページ)
 
 

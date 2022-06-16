@@ -2,12 +2,7 @@
 
 <div class="mainPageWrapper">
 
-  <h1>{{ $chart->project->name }}</h1>
-
-  <div>
-    <p>{{ $chart->project->project_number }}</p>
-    <p>{{ $chart->comment }}</p>
-  </div>
+  <h1>Project Number: {{ $project_number }}</h1>
 
   <div>
     <a href={{ route('project.list') }} class="btn btn-outline-primary">一覧に戻る</a>

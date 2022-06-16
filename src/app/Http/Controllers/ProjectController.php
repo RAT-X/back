@@ -25,6 +25,13 @@ class ProjectController extends Controller
         return view('project_list', compact('projects'));
     }
 
+    public function show($project_number)
+    {
+        // $project = \App\Models\Project::find($project_number);
+        $project_number = $request->project_number;
+        return view('user_project', compact('project_number'));
+    }
+
     public function create()
     {
 
