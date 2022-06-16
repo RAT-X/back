@@ -14,7 +14,7 @@ class RemoveNameFromProjectsTable extends Migration
     public function up()
     {
         Schema::table('projects', function (Blueprint $table) {
-            //
+            $table->dropColumn('name');
         });
     }
 
@@ -26,7 +26,7 @@ class RemoveNameFromProjectsTable extends Migration
     public function down()
     {
         Schema::table('projects', function (Blueprint $table) {
-            //
+            $table->string('name');
         });
     }
 }

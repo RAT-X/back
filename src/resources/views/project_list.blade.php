@@ -4,14 +4,12 @@
 
   <h1>プロジェクト一覧</h1>
 
-  @foreach ($charts as $chart)
+  @foreach ($projects as $project)
     <p>
-      {{ $chart->project->project_number }},
-      {{ $chart->project->name }},
+      {{ $project->project_number }}
+      {{ $project->project_title }}
+      {{ $project->comment }}
 
-      {{ $chart->user_id }},
-      {{ $chart->project_id }},
-      {{ $chart->comment }}
     </p>
     @endforeach
 

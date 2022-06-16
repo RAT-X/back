@@ -10,9 +10,7 @@ class ChartController extends Controller
 {
     public function index()
     {
-        $charts = \App\Models\Chart::all();
-
-        return view('project_list', compact('charts'));
+        //
     }
 
     public function show($id)

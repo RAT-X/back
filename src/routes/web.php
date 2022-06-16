@@ -24,7 +24,7 @@ Route::get('/flowchart', 'App\Http\Controllers\FlowchartPageController@show');
 // test用
 Route::get('/newpost', 'App\Http\Controllers\NewpostController@Newpost');
 
-Route::get('/projects', 'App\Http\Controllers\ChartController@index')
+Route::get('/projects', 'App\Http\Controllers\ProjectController@index')
 ->name('/project.list'); // 一覧表示
 
 Route::get('/project/{id}', 'App\Http\Controllers\ChartController@show')

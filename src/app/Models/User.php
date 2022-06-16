@@ -42,9 +42,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // userは複数のpostを持つという処理
-    public function charts()
+    // userは複数のprojectを持つという処理
+    public function projects()
     {
-        return $this->hasMany('App\Chart');
+        return $this->hasMany('App\Models\Project');
     }
 }
