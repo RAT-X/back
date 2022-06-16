@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use Carbon\Carbon;
+use App\Models\Project;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -15,19 +15,6 @@ class ProjectsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('projects')->insert([
-            [
-                'project_number' => 1,
-                'name' => 'FirstProject',
-            ],
-            [
-                'project_number' => 2,
-                'name' => 'SecondProject',
-            ],
-            [
-                'project_number' => 3,
-                'name' => 'ThirdProject',
-            ],
-        ]);
+        Project::factory(20)->create();
     }
 }
