@@ -38,9 +38,9 @@ Route::get('/project/new', 'App\Http\Controllers\ProjectController@create')
 
 
 
-Route::get('/', function() {
-    return redirect('/projects');
-});
+// Route::get('/', function() {
+//     return redirect('/projects');
+// });
 // テスト用ここまで
 
 Auth::routes();

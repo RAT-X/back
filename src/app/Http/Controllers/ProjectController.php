@@ -28,7 +28,7 @@ class ProjectController extends Controller
     public function show($id, $project_title)
     {
         $project = Project::find($id);
-        $projects = Project::find($project_title);
+
         return view('user_project', ['project' => $project]);
     }
 
