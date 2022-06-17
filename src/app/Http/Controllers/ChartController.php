@@ -17,7 +17,7 @@ class ChartController extends Controller
 
     public function show($id)
     {
-        $chart = DB::table('charts')->where('')
+        $chart = DB::table('charts')->where('');
     }
 
     // public function store(Request $request)

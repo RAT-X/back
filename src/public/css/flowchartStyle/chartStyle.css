@@ -70,9 +70,13 @@ p{
     background: rgb(109, 225, 109);
     border-radius: 30px;
 }
+.startEnd2 {
+    background: rgb(109, 225, 109);
+    border-radius: 30px;
+}
 /* branch */
 .branch {
-    background-image: url(./img/Rectangle3.png);
+    background-image: url(img/Rectangle3.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100% 100%;
@@ -91,12 +95,12 @@ p{
     transform: skewX(10deg);
 }
 /* roopStart */
-.roopStart {
+.loopStart {
     display: inline-block;
     background: #ef9ef6;
     position: relative;
 }
-.roopStart::before {
+.loopStart::before {
     position: absolute;
     content: '';
     height: 20px;
@@ -106,7 +110,7 @@ p{
     background: #fff;
     clip-path: polygon(0 0, 0% 20px, 20px 0%);
 }
-.roopStart::after {
+.loopStart::after {
     position: absolute;
     content: '';
     height: 20px;
@@ -118,12 +122,12 @@ p{
     transform: rotate(90deg);
 }
 /* roopEnd */
-.roopEnd {
+.loopEnd {
     display: inline-block;
     background: #ef9ef6;
     position: relative;
 }
-.roopEnd:before {
+.loopEnd:before {
     position: absolute;
     content: '';
     height: 22px;
@@ -134,7 +138,7 @@ p{
     clip-path: polygon(0 0, 0% 22px, 22px 0%);
     transform: rotate(-90deg);
 }
-.roopEnd:after {
+.loopEnd:after {
     position: absolute;
     content: '';
     height: 22px;
@@ -194,6 +198,9 @@ p{
 
 /* 強調クラス設定 */
 .strongBE {
+    border: var(--set-border-width) solid #477426;
+}
+.strongBE2 {
     border: var(--set-border-width) solid #477426;
 }
 .strongBr {

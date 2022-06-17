@@ -104,11 +104,14 @@ function inputExtender(){
     input.style.height = spanHeight + 'px';
 }
 
+
+let arrowCount = 2;
 //keydownアクション
 input.addEventListener('keydown',pressEnter);
 
 function pressEnter(e){
     if(!e.isComposing && e.key === 'Enter'){
+        arrowCount = 2;
         const isHere = document.getElementsByClassName('isHere')[0];
         const strongs = ['strongBE','strongBr','strongPr','strongIn','strongLs','strongLe','strongDp'];
         strongs.forEach((value)=>{isHere.classList.remove(value);});
@@ -155,51 +158,59 @@ function pressEnter(e){
 
 //boxチェンジ
 input.addEventListener('keydown',addArrowCount);
-let arrowCount = 2;
 
 function addArrowCount(e){
     const wantClasses = this.parentElement.parentElement;
     const rejectClass = wantClasses.classList.contains('startEnd');
     if(!rejectClass && e.shiftKey && e.key === 'ArrowUp'){
         arrowCount += 1;
-        if(arrowCount === 9){
+        if(arrowCount === 8){
             arrowCount = 0;
         }
     }
-}
-
-input.addEventListener('keydown',chengeBox);
-function chengeBox(e){
-    const wantClasses = this.parentElement.parentElement;
-    const rejectClass = wantClasses.classList.contains('startEnd');
-    if(!rejectClass && e.shiftKey && e.key === 'ArrowUp'){
-        switch(arrowCount){
-            case 1:
-                console.log('SE');
-                break;
-            case 2:
-                console.log('BR');
-                break;
-            case 3:
-                console.log('PR');
-                break;
-            case 4:
-                console.log('IN');
-                break;
-            case 5:
-                console.log('RS');
-                break;
-            case 6:
-                console.log('RE');
-                break;
-            case 7:
-                console.log('CO');
-                break;
-            case 8:
-                console.log('CI');
-                break;
+    if(!rejectClass && e.shiftKey && e.key === 'ArrowDown'){
+        arrowCount -= 1;
+        if(arrowCount === -1){
+            arrowCount = 7;
         }
     }
+    if(!rejectClass){
+        changeBox();
+    }
+}
+
+function changeBox(e){
+    switch(arrowCount){
+        case 0:
+            changeStyle('itemBox startEnd2 strongBE2 isHere');
+            break;
+        case 1:
+            changeStyle('itemBox branch strongBr isHere');
+            break;
+        case 2:
+            changeStyle('itemBox process strongPr isHere');
+            break;
+        case 3:
+            changeStyle('itemBox input strongIn isHere');
+            break;
+        case 4:
+            changeStyle('itemBox loopStart strongLs isHere');
+            break;
+        case 5:
+            changeStyle('itemBox loopEnd strongLe isHere');
+            break;
+        case 6:
+            changeStyle('itemBox connectOut isHere');
+            break;
+        case 7:
+            changeStyle('itemBox connectIn isHere');
+            break;
+    }
+}
+
+function changeStyle(classname){
+    const currentL = document.getElementsByClassName('isHere')[0];
+    currentL.className = classname;
 }
 
 let values;
