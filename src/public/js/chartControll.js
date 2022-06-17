@@ -207,6 +207,9 @@ const btn = document.getElementsByClassName('fa-cloud-arrow-up')[0];
 
 btn.addEventListener('click',insertValue);
 function insertValue(){
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST','posttest',true);
+    xhr.setRequestHeader('content-type','application/x-www-form-urlencoded;charset=UTF-8');
     const userChartItem = {};
     const s = Symbol("usersChartData");
     const imHTMLs = document.getElementById('flowChartArea').innerHTML;
@@ -215,4 +218,5 @@ function insertValue(){
     const jsonPerseText = imJSONText;
     const values = jsonPerseText;
     console.log(values);
+    xhr.send(imHTMLs);
 }

@@ -41,3 +41,7 @@ Route::get('/', function() {
 Auth::routes();
 
 Route::get('/top', [App\Http\Controllers\TopPageController::class, 'index'])->name('top');
+
+// post-tester
+Route::get('/posttest',[App\Http\Controllers\PostTestController::class, 'show']);
+Route::post('/posttest',[App\Http\Controllers\PostTestController::class]);
