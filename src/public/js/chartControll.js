@@ -187,26 +187,29 @@ function changeBox(e){
         case 1:
             changeStyle('itemBox branch strongBr isHere');
             const currentL = document.getElementsByClassName('isHere')[0];
-            const thisAreaItemsCount = currentL.parentElement.childElementCount;
-            const rootElement = currentL.parentElement.parentElement;
-            const nextArea = document.createElement('div');
-            nextArea.className = 'area';
-            const areaCount = document.getElementsByClassName('area').length;
-            nextArea.classList.add('oddArea');
-            nextArea.classList.add('area' + areaCount);
-            rootElement.insertAdjacentElement('beforeend',nextArea);
-            for(let i = 0; i<thisAreaItemsCount; i++){
-                i%2 === 0 ? addEvenBox() : addOddBox() ;
-                function addEvenBox(){
-                    const innerItem = document.createElement('div');
-                    innerItem.className = 'itemBox';
-                    nextArea.insertAdjacentElement('beforeend',innerItem);
-                }
-                function addOddBox(){
-                    const innerItem = document.createElement('canvas');
-                    innerItem.className = 'arrow';
-                    innerItem.style.height = '50px';
-                    nextArea.insertAdjacentElement('beforeend',innerItem);
+            const thisArea = currentL.parentElement;
+            const thisAreaItemsCount = thisArea.childElementCount;
+            const rootElement = thisArea.parentElement;
+            if(!thisArea.nextElementSibling.nextElementSibling){
+                const nextArea = document.createElement('div');
+                nextArea.className = 'area';
+                const areaCount = document.getElementsByClassName('area').length;
+                nextArea.classList.add('oddArea');
+                nextArea.classList.add('area' + areaCount);
+                rootElement.insertAdjacentElement('beforeend',nextArea);
+                for(let i = 0; i<thisAreaItemsCount; i++){
+                    i%2 === 0 ? addEvenBox() : addOddBox() ;
+                    function addEvenBox(){
+                        const innerItem = document.createElement('div');
+                        innerItem.className = 'itemBox';
+                        nextArea.insertAdjacentElement('beforeend',innerItem);
+                    }
+                    function addOddBox(){
+                        const innerItem = document.createElement('canvas');
+                        innerItem.className = 'arrow';
+                        innerItem.style.height = '50px';
+                        nextArea.insertAdjacentElement('beforeend',innerItem);
+                    }
                 }
             }
             break;
