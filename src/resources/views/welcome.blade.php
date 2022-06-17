@@ -3,7 +3,9 @@
 
 <div class="mainPageWrapper">
     <div class="welcomeMessageBox">
-        <h2>こんにちは User.</h2>
+        @if (Auth::check())
+        <h2>こんにちは {{ Auth::user()->name }}さん</h2>
+        @endif
     </div>
 
     <div class="createBoxWrapper">
