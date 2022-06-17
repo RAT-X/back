@@ -25,16 +25,22 @@ class ProjectController extends Controller
         return view('project_list', compact('projects'));
     }
 
-    public function show($project_number)
+    // public function show()
+    // {
+    //     $projects = \App\Models\Project::all();
+
+    //     return view('user_project', compact('projects'));
+    // }
+
+    public function show($id)
     {
-        // $project = \App\Models\Project::find($project_number);
-        $project_number = $request->project_number;
-        return view('user_project', compact('project_number'));
+        $project = Project::find($id);
+        return view('user_project', ['project' => $project]);
     }
 
     public function create()
     {
-
+        //
     }
 
     //middlewareによる認証制限を追加

@@ -25,16 +25,16 @@ Route::get('/flowchart', 'App\Http\Controllers\FlowchartPageController@show');
 Route::get('/newpost', 'App\Http\Controllers\NewpostController@Newpost');
 
 Route::get('/projects', 'App\Http\Controllers\ProjectController@index')
-->name('/project.list'); // 一覧表示
+->name('project.list'); // 一覧表示
 
-Route::get('/project/{project_number}', 'App\Http\Controllers\ProjectController@show')
+Route::get('/project/{id}', 'App\Http\Controllers\ProjectController@show')
 ->name('project.detail'); // 作成済みプロジェクトを開く(詳細ページ)
 
 
 Route::get('/project/new', 'App\Http\Controllers\ProjectController@create')
 ->name('project.new'); // 新規作成
-Route::get('/project', 'App\Http\Controllers\ProjectController@store')
-->name('project.store'); // 保存
+// Route::get('/project', 'App\Http\Controllers\ProjectController@store')
+// ->name('project.store'); // 保存
 
 
 
