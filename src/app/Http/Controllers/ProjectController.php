@@ -18,9 +18,28 @@ class ProjectController extends Controller
     //     return redirect()->route('shop.detail', ['id' => $newpost->id]);
     // }
 
+    public function index()
+    {
+        $projects = \App\Models\Project::all();
+
+        return view('project_list', compact('projects'));
+    }
+
+    public function show($id, $project_title)
+    {
+        $project = Project::find($id);
+        $projects = Project::find($project_title);
+        return view('user_project', ['project' => $project]);
+    }
+    // public function show($id)
+    // {
+    //     $project = Project::find($id);
+    //     return view('user_project', ['project' => $project]);
+    // }
+
     public function create()
     {
-
+        //
     }
 
     //middlewareによる認証制限を追加

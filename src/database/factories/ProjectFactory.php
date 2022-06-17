@@ -24,7 +24,7 @@ class ProjectFactory extends Factory
     {
         return [
             'project_number' => $this->faker->numberBetween(1,100),
-            'project_title' => $this->faker->name(),
+            'project_title' => $this->faker->country(),
             'comment' => $this->faker->realText(),
         ];
     }
