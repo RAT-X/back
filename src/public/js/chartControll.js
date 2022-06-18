@@ -186,32 +186,7 @@ function changeBox(e){
             break;
         case 1:
             changeStyle('itemBox branch strongBr isHere');
-            const currentL = document.getElementsByClassName('isHere')[0];
-            const thisArea = currentL.parentElement;
-            const thisAreaItemsCount = thisArea.childElementCount;
-            const rootElement = thisArea.parentElement;
-            if(!thisArea.nextElementSibling.nextElementSibling){
-                const nextArea = document.createElement('div');
-                nextArea.className = 'area';
-                const areaCount = document.getElementsByClassName('area').length;
-                nextArea.classList.add('oddArea');
-                nextArea.classList.add('area' + areaCount);
-                rootElement.insertAdjacentElement('beforeend',nextArea);
-                for(let i = 0; i<thisAreaItemsCount; i++){
-                    i%2 === 0 ? addEvenBox() : addOddBox() ;
-                    function addEvenBox(){
-                        const innerItem = document.createElement('div');
-                        innerItem.className = 'itemBox';
-                        nextArea.insertAdjacentElement('beforeend',innerItem);
-                    }
-                    function addOddBox(){
-                        const innerItem = document.createElement('canvas');
-                        innerItem.className = 'arrow';
-                        innerItem.style.height = '50px';
-                        nextArea.insertAdjacentElement('beforeend',innerItem);
-                    }
-                }
-            }
+            addAreas();
             break;
         case 2:
             changeStyle('itemBox process strongPr isHere');
@@ -237,6 +212,46 @@ function changeBox(e){
 function changeStyle(classname){
     const currentL = document.getElementsByClassName('isHere')[0];
     currentL.className = classname;
+}
+
+function addAreas(){
+    const currentL = document.getElementsByClassName('isHere')[0];
+    const thisArea = currentL.parentElement;
+    const thisAreaItemsCount = thisArea.childElementCount;
+    const rootElement = thisArea.parentElement;
+    if(!thisArea.nextElementSibling.nextElementSibling){
+        const nextArea = document.createElement('div');
+        const wNextArea = document.createElement('div');
+        nextArea.className = 'area';
+        wNextArea.className = 'area';
+        const areaCount = document.getElementsByClassName('area').length;
+        nextArea.classList.add('oddArea');
+        nextArea.classList.add('area' + areaCount);
+        wNextArea.classList.add('evenArea');
+        wNextArea.classList.add('area' + (areaCount+1));
+        rootElement.insertAdjacentElement('beforeend',nextArea);
+        rootElement.insertAdjacentElement('beforeend',wNextArea);
+        for(let i = 0; i<thisAreaItemsCount; i++){
+            i%2 === 0 ? addEvenBox() : addOddBox() ;
+            function addEvenBox(){
+                const innerItem = document.createElement('div');
+                innerItem.className = 'itemBox';
+                nextArea.insertAdjacentElement('beforeend',innerItem);
+            }
+            function addOddBox(){
+                const innerItem = document.createElement('canvas');
+                innerItem.className = 'arrow';
+                innerItem.style.height = '50px';
+                nextArea.insertAdjacentElement('beforeend',innerItem);
+            }
+
+            const wNCanvases = document.createElement('canvas');
+            wNCanvases.className = 'arrow';
+            thisArea.children[i].getBoundingClientRect().height;
+            wNCanvases.style.height = thisArea.children[i].getBoundingClientRect().height + 'px';
+            wNextArea.insertAdjacentElement('beforeend',wNCanvases);
+        }
+    }
 }
 
 let values;
