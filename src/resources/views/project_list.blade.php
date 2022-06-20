@@ -5,13 +5,14 @@
   <h1>プロジェクト一覧</h1>
 
   @foreach ($projects as $project)
-    <p>
-      {{ $project->id }}
-      {{ $project->project_number }}
-      {{ $project->project_title }}
-      {{ $project->comment }}
+  <div class="userProjectBox box_flame">
+  <a href="{{ route('project.detail', ['id' => $project->id, 'project_title' => $project->project_title]) }}">
+    Number: {{$project->id}}<br>
+    Title: {{ $project->project_title }}
+  </a>
+</div>
 
-    </p>
+
     @endforeach
 
   <div>
