@@ -5,15 +5,23 @@
   <h1>プロジェクト一覧</h1><br>
 
   @foreach ($projects as $project)
-  <div class="userProjectBox box_flame">
-  <a href="{{ route('project.detail', ['id' => $project->id, 'project_title' => $project->project_title]) }}">
-    Number: {{$project->id}}<br>
-    Title: {{ $project->project_title }}
-  </a>
-</div>
+    <a href="{{ route('project.detail', ['id' => $project->id, 'project_title' => $project->project_title]) }}">
+      <div class="userProjectBox box_flame">
+        {{ $project->getData() }}
+      </div>
+    </a>
+  @endforeach
 
 
-    @endforeach
+
+  @foreach ($projects as $project)
+    <a href="{{ route('project.detail', ['id' => $project->id, 'project_title' => $project->project_title]) }}">
+      <div class="userProjectBox box_flame">
+        Number: {{$project->id}}<br>
+        Title: {{ $project->project_title }}
+      </div>
+    </a>
+  @endforeach
 
   <div>
     <a href={{ route('project.new') }} class="btn btn-outline-primary">新しいプロジェクト</a>
