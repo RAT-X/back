@@ -2,7 +2,7 @@
 
 <div class="mainPageWrapper">
 
-  <h1>プロジェクト一覧</h1>
+  <h1>プロジェクト一覧</h1><br>
 
   @foreach ($projects as $project)
   <div class="userProjectBox box_flame">
