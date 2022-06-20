@@ -1,4 +1,4 @@
-const allArea = document.querySelectorAll('.area');
+const allArea = document.getElementsByClassName('area');
 const input = document.createElement('textarea');
 const isHere = document.getElementsByClassName('isHere');
 
@@ -23,7 +23,7 @@ for(let i=0; i< area0Arrows.length; i++){
     }
 }
 
-//Area0のElement幅の伸長
+//Area0のElement高さの伸長
 input.addEventListener('input',area0CanvasExtender);
 function area0CanvasExtender(){
     for(let i = 0; i < area0Arrows.length; i++){
@@ -33,7 +33,7 @@ function area0CanvasExtender(){
     }
 }
 
-//Area1以降のElement<幅>の設定
+//Area1以降のElement<高さ>の設定
 for(let i = 2; i < allArea.length; i++){
     if(i % 2 === 0){
         const thisArrows = allArea[i].getElementsByClassName('arrow');
@@ -75,15 +75,28 @@ const firstAllWidth = firstBoxUnderCanvas.getBoundingClientRect().width;
 const firstHalfWidth = firstAllWidth/1.35;
 const firstContext = firstBoxUnderCanvas.getContext('2d');
 createDownArrow(firstContext,firstHalfWidth);
+
 //↓生成
 function createDownArrow(xContext,width){
     xContext.beginPath();
-    xContext.fillStyle = '#000';
+    xContext.strokeStyle = '#000';
     xContext.moveTo(width,0);
     xContext.lineTo(width,150);
     xContext.lineTo(width + 10 , 130);
     xContext.moveTo(width,150);
     xContext.lineTo(width - 10 , 130);
+    xContext.stroke();
+    xContext.closePath();
+}
+//branchのarrow
+function createRightArrow(xContext){
+    xContext.beginPath();
+    xContext.strokeStyle = 'red';
+    xContext.moveTo(0,68);
+    xContext.lineTo(300,68);
+    xContext.lineTo(300 - 20 , 90);
+    xContext.moveTo(300,68);
+    xContext.lineTo(300 - 20 , 45);
     xContext.stroke();
     xContext.closePath();
 }
@@ -142,6 +155,7 @@ function pressEnter(e){
         thisElement.appendChild(newP);
         newP.appendChild(input);
         input.focus();
+        
         //０行目のcanvasの生成
         if(baseParent.classList.contains('area1')){
             for(let i = 1; i < 3; i++){
@@ -250,10 +264,21 @@ function addAreas(){
             thisArea.children[i].getBoundingClientRect().height;
             wNCanvases.style.height = thisArea.children[i].getBoundingClientRect().height + 'px';
             wNextArea.insertAdjacentElement('beforeend',wNCanvases);
+
+            if(thisArea.children[i].classList.contains('branch')){
+                const rightArrowClass = thisArea.nextElementSibling.getElementsByClassName('arrow')[i];
+                const rAContext = rightArrowClass.getContext('2d');
+                createRightArrow(rAContext);
+            };
+            console.log(thisArea.children[i].classList);
         }
     }
 }
 
+// 右矢印の自動設定
+
+
+//JSON処理
 let values;
 const btn = document.getElementsByClassName('fa-cloud-arrow-up')[0];
 
