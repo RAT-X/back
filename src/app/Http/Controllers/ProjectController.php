@@ -26,14 +26,7 @@ class ProjectController extends Controller
         return view('project_list', ['projects' => $projects]);
     }
 
-    // public function index()
-    // {
-    //     $projects = \App\Models\Project::all();
-
-    //     return view('project_list', compact('projects'));
-    // }
-
-    public function show($id, $project_title)
+    public function show($id)
     {
         $project = Project::find($id);
 

@@ -18,11 +18,6 @@ class Project extends Model
       return $this->belongsTo('App\Models\User');
    }
 
-   public function getData()
-   {
-      return 'Number: ' . $this->id . '\nTitle: ' . $this->project_title;
-   }
-
    // protected static function boot()
    //  {
    //      parent::boot();
