@@ -271,3 +271,10 @@ p{
     background-repeat: no-repeat;
     background-size: 100% 100%;/*修正の必要あり*/
 }
+
+/* ProjectTitle */
+#projectTitle {
+    text-align: center;
+    padding: 50px 0;
+    font-size: 26px;
+}
