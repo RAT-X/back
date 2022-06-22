@@ -16,6 +16,7 @@ class NewpostController extends Controller
         return view('newpost');
     }
 
+
     public function create(Request $request) {
         // 投稿したプロジェクトを受け取って変数に入れる
         $project_title = $request->input('project_title');
@@ -24,12 +25,16 @@ class NewpostController extends Controller
         // ログインしているユーザーIDを取得
         $user_id = Auth::id();
 
-        post::insert(
-            [
-                "project_title" => $project_title,
-                "comment" => $comment,
-                "user_id" => $user_id,
-            ]);
+        DB::insert([
+            "user_id" => $user_id,
+            'project_title' => $project_title,
+            'comment' => $comment,
+        ]
+
+        );
+
+        return view('/');
+
     }
 
     //middlewareによる認証制限を追加
