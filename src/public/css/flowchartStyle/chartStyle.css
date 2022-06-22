@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 :root {
-    --set-width: 200px;
+    --set-width: 150px;
     --set-border-width: 3px;
     --set-height: 30px;
 }
@@ -28,10 +28,8 @@
     min-height: var(--set-height);
 }
 .itemBox {
-    min-height: var(--set-height);
     text-align: center;
     font-size: 15px;
-    width: var(--set-width);
     margin: 0;
     padding: 3px 15px;
     box-sizing:border-box;
@@ -39,30 +37,24 @@
 }
 #temporaly {
     display: inline-block;
-    width: 150px;
+    min-width: 6px;
+    max-width: calc(var(--set-width)*0.8);
     min-height: 30px;
     font-size: 15px;
     overflow-wrap: break-word;
     opacity: 0;
 }
-textarea {
-    resize: none;
-    margin: 0;
-}
 
 textarea {
-    font-size: 15px;
-    margin-top: 8px;
-    width: 6px;
-    max-width: calc(var(--set-width)*0.8);
-    height: 10px;
     border: none;
-    background: none;
+    resize: none;
     outline: none;
-}
-
-p{
-    margin: 0;
+    font-size: 15px;
+    width: 6px;
+    max-width: calc(var(--set-width)*0.7);
+    height: 10px;
+    background: none;
+    overflow: hidden;
 }
 
 /* startEnd */

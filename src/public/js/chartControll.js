@@ -155,7 +155,7 @@ function pressEnter(e){
         thisElement.appendChild(newP);
         newP.appendChild(input);
         input.focus();
-        
+
         //０行目のcanvasの生成
         if(baseParent.classList.contains('area1')){
             for(let i = 1; i < 3; i++){
@@ -163,6 +163,16 @@ function pressEnter(e){
             }
         };
 
+        const elementX = document.getElementsByClassName('area');
+        for(let i=2; i<elementX.length; i++){
+            i % 2 === 0 ? evenArea() : oddArea();
+            function evenArea(){
+
+            }
+            function oddArea(){
+
+            }
+        }
         //2行目以降右側のcanvasの生成
         for(let i = 1; i < 3; i++){
             baseParent.nextElementSibling.insertAdjacentHTML('beforeend','<canvas class="arrow">');
@@ -270,7 +280,6 @@ function addAreas(){
                 const rAContext = rightArrowClass.getContext('2d');
                 createRightArrow(rAContext);
             };
-            console.log(thisArea.children[i].classList);
         }
     }
 }
