@@ -18,12 +18,18 @@ class ProjectController extends Controller
     //     return redirect()->route('shop.detail', ['id' => $newpost->id]);
     // }
 
-    public function index()
+    public function index(Request $request)
     {
-        $projects = \App\Models\Project::all();
-
-        return view('project_list', compact('projects'));
+        $projects = Project::with('User')->get();
+        return view('project_list', ['projects' => $projects]);
     }
+
+    // public function index()
+    // {
+    //     $projects = \App\Models\Project::all();
+
+    //     return view('project_list', compact('projects'));
+    // }
 
     public function show($id, $project_title)
     {

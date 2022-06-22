@@ -6,6 +6,7 @@
 
   @foreach ($projects as $project)
     <p>
+      
       {{ $project->id }}
       {{ $project->project_number }}
       {{ $project->project_title }}
