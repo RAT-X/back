@@ -102,8 +102,42 @@ function pressShiftEnter(e){
         }
     }
     if(!rejectClass){
-        // changeBox();
+        changeBox();
     }
+}
+function changeBox(e){
+    switch(arrowCount){
+        case 0:
+            changeStyle('itemBox startEnd2 strongBE2 isHere');
+            break;
+        case 1:
+            changeStyle('itemBox branch strongBr isHere');
+            addArea();
+            break;
+        case 2:
+            changeStyle('itemBox process strongPr isHere');
+            break;
+        case 3:
+            changeStyle('itemBox input strongIn isHere');
+            break;
+        case 4:
+            changeStyle('itemBox loopStart strongLs isHere');
+            break;
+        case 5:
+            changeStyle('itemBox loopEnd strongLe isHere');
+            break;
+        case 6:
+            changeStyle('itemBox connectOut isHere');
+            break;
+        case 7:
+            changeStyle('itemBox connectIn isHere');
+            break;
+    }
+}
+
+function changeStyle(classname){
+    const currentL = document.getElementsByClassName('isHere')[0];
+    currentL.className = classname;
 }
 
 //boxの追加
