@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\User;
 use App\Models\Project;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -34,14 +36,10 @@ class ProjectController extends Controller
     public function show($id, $project_title)
     {
         $project = Project::find($id);
-        $projects = Project::find($project_title);
+
         return view('user_project', ['project' => $project]);
     }
-    // public function show($id)
-    // {
-    //     $project = Project::find($id);
-    //     return view('user_project', ['project' => $project]);
-    // }
+
 
     public function create()
     {

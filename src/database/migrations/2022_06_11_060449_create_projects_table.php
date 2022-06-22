@@ -17,7 +17,7 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->integer('project_number');
+            $table->foreignId('user_id')->constrained();
             $table->string('project_title');
             $table->string('comment');
             $table->timestamps();

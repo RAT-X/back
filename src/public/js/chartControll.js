@@ -1,4 +1,4 @@
-const allArea = document.querySelectorAll('.area');
+const allArea = document.getElementsByClassName('area');
 const input = document.createElement('textarea');
 const isHere = document.getElementsByClassName('isHere');
 
@@ -23,7 +23,7 @@ for(let i=0; i< area0Arrows.length; i++){
     }
 }
 
-//Area0のElement幅の伸長
+//Area0のElement高さの伸長
 input.addEventListener('input',area0CanvasExtender);
 function area0CanvasExtender(){
     for(let i = 0; i < area0Arrows.length; i++){
@@ -33,7 +33,7 @@ function area0CanvasExtender(){
     }
 }
 
-//Area1以降のElement<幅>の設定
+//Area1以降のElement<高さ>の設定
 for(let i = 2; i < allArea.length; i++){
     if(i % 2 === 0){
         const thisArrows = allArea[i].getElementsByClassName('arrow');
@@ -75,15 +75,28 @@ const firstAllWidth = firstBoxUnderCanvas.getBoundingClientRect().width;
 const firstHalfWidth = firstAllWidth/1.35;
 const firstContext = firstBoxUnderCanvas.getContext('2d');
 createDownArrow(firstContext,firstHalfWidth);
+
 //↓生成
 function createDownArrow(xContext,width){
     xContext.beginPath();
-    xContext.fillStyle = '#000';
+    xContext.strokeStyle = '#000';
     xContext.moveTo(width,0);
     xContext.lineTo(width,150);
     xContext.lineTo(width + 10 , 130);
     xContext.moveTo(width,150);
     xContext.lineTo(width - 10 , 130);
+    xContext.stroke();
+    xContext.closePath();
+}
+//branchのarrow
+function createRightArrow(xContext){
+    xContext.beginPath();
+    xContext.strokeStyle = 'red';
+    xContext.moveTo(0,68);
+    xContext.lineTo(300,68);
+    xContext.lineTo(300 - 20 , 90);
+    xContext.moveTo(300,68);
+    xContext.lineTo(300 - 20 , 45);
     xContext.stroke();
     xContext.closePath();
 }
@@ -104,13 +117,16 @@ function inputExtender(){
     input.style.height = spanHeight + 'px';
 }
 
+
+let arrowCount = 2;
 //keydownアクション
 input.addEventListener('keydown',pressEnter);
 
 function pressEnter(e){
     if(!e.isComposing && e.key === 'Enter'){
+        arrowCount = 2;
         const isHere = document.getElementsByClassName('isHere')[0];
-        const strongs = ['strongBE','strongBr','strongPr','strongIn','strongLs','strongLe','strongDp'];
+        const strongs = ['strongBE','strongBE2','strongBr','strongPr','strongIn','strongLs','strongLe','strongDp'];
         strongs.forEach((value)=>{isHere.classList.remove(value);});
         isHere.classList.remove('isHere');
 
@@ -139,6 +155,7 @@ function pressEnter(e){
         thisElement.appendChild(newP);
         newP.appendChild(input);
         input.focus();
+        
         //０行目のcanvasの生成
         if(baseParent.classList.contains('area1')){
             for(let i = 1; i < 3; i++){
@@ -155,53 +172,113 @@ function pressEnter(e){
 
 //boxチェンジ
 input.addEventListener('keydown',addArrowCount);
-let arrowCount = 2;
 
 function addArrowCount(e){
     const wantClasses = this.parentElement.parentElement;
     const rejectClass = wantClasses.classList.contains('startEnd');
     if(!rejectClass && e.shiftKey && e.key === 'ArrowUp'){
         arrowCount += 1;
-        if(arrowCount === 9){
+        if(arrowCount === 8){
             arrowCount = 0;
         }
     }
+    if(!rejectClass && e.shiftKey && e.key === 'ArrowDown'){
+        arrowCount -= 1;
+        if(arrowCount === -1){
+            arrowCount = 7;
+        }
+    }
+    if(!rejectClass){
+        changeBox();
+    }
 }
 
-input.addEventListener('keydown',chengeBox);
-function chengeBox(e){
-    const wantClasses = this.parentElement.parentElement;
-    const rejectClass = wantClasses.classList.contains('startEnd');
-    if(!rejectClass && e.shiftKey && e.key === 'ArrowUp'){
-        switch(arrowCount){
-            case 1:
-                console.log('SE');
-                break;
-            case 2:
-                console.log('BR');
-                break;
-            case 3:
-                console.log('PR');
-                break;
-            case 4:
-                console.log('IN');
-                break;
-            case 5:
-                console.log('RS');
-                break;
-            case 6:
-                console.log('RE');
-                break;
-            case 7:
-                console.log('CO');
-                break;
-            case 8:
-                console.log('CI');
-                break;
+function changeBox(e){
+    switch(arrowCount){
+        case 0:
+            changeStyle('itemBox startEnd2 strongBE2 isHere');
+            break;
+        case 1:
+            changeStyle('itemBox branch strongBr isHere');
+            addAreas();
+            break;
+        case 2:
+            changeStyle('itemBox process strongPr isHere');
+            break;
+        case 3:
+            changeStyle('itemBox input strongIn isHere');
+            break;
+        case 4:
+            changeStyle('itemBox loopStart strongLs isHere');
+            break;
+        case 5:
+            changeStyle('itemBox loopEnd strongLe isHere');
+            break;
+        case 6:
+            changeStyle('itemBox connectOut isHere');
+            break;
+        case 7:
+            changeStyle('itemBox connectIn isHere');
+            break;
+    }
+}
+
+function changeStyle(classname){
+    const currentL = document.getElementsByClassName('isHere')[0];
+    currentL.className = classname;
+}
+
+function addAreas(){
+    const currentL = document.getElementsByClassName('isHere')[0];
+    const thisArea = currentL.parentElement;
+    const thisAreaItemsCount = thisArea.childElementCount;
+    const rootElement = thisArea.parentElement;
+    if(!thisArea.nextElementSibling.nextElementSibling){
+        const nextArea = document.createElement('div');
+        const wNextArea = document.createElement('div');
+        nextArea.className = 'area';
+        wNextArea.className = 'area';
+        const areaCount = document.getElementsByClassName('area').length;
+        nextArea.classList.add('oddArea');
+        nextArea.classList.add('area' + areaCount);
+        wNextArea.classList.add('evenArea');
+        wNextArea.classList.add('area' + (areaCount+1));
+        rootElement.insertAdjacentElement('beforeend',nextArea);
+        rootElement.insertAdjacentElement('beforeend',wNextArea);
+        for(let i = 0; i<thisAreaItemsCount; i++){
+            i%2 === 0 ? addEvenBox() : addOddBox() ;
+            function addEvenBox(){
+                const innerItem = document.createElement('div');
+                innerItem.className = 'itemBox';
+                nextArea.insertAdjacentElement('beforeend',innerItem);
+            }
+            function addOddBox(){
+                const innerItem = document.createElement('canvas');
+                innerItem.className = 'arrow';
+                innerItem.style.height = '50px';
+                nextArea.insertAdjacentElement('beforeend',innerItem);
+            }
+
+            const wNCanvases = document.createElement('canvas');
+            wNCanvases.className = 'arrow';
+            thisArea.children[i].getBoundingClientRect().height;
+            wNCanvases.style.height = thisArea.children[i].getBoundingClientRect().height + 'px';
+            wNextArea.insertAdjacentElement('beforeend',wNCanvases);
+
+            if(thisArea.children[i].classList.contains('branch')){
+                const rightArrowClass = thisArea.nextElementSibling.getElementsByClassName('arrow')[i];
+                const rAContext = rightArrowClass.getContext('2d');
+                createRightArrow(rAContext);
+            };
+            console.log(thisArea.children[i].classList);
         }
     }
 }
 
+// 右矢印の自動設定
+
+
+//JSON処理
 let values;
 const btn = document.getElementsByClassName('fa-cloud-arrow-up')[0];
 

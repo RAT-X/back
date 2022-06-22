@@ -38,8 +38,8 @@
                     </div>
 
                     <div class="area evenArea area2">
-                        <canvas class="arrow 3"></canvas>
-                        <canvas class="arrow 3"></canvas>
+                        <canvas class="arrow"></canvas>
+                        <canvas class="arrow"></canvas>
                     </div>
                 </section>
                 <div id="mainToolBox">

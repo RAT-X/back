@@ -27,6 +27,11 @@ Route::get('/newpost', 'App\Http\Controllers\NewpostController@Newpost');
 Route::get('/projects', 'App\Http\Controllers\ProjectController@index')
 ->name('project.list'); // 一覧表示
 
+Route::get('/project/new', 'App\Http\Controllers\ProjectController@create')
+->name('project.new'); // 新規作成
+
+
+
 Route::get('/project/{id}/{project_title}', 'App\Http\Controllers\ProjectController@show')
 ->name('project.detail'); // 作成済みプロジェクトを開く(詳細ページ)
 
@@ -38,9 +43,9 @@ Route::get('/project/new', 'App\Http\Controllers\ProjectController@create')
 
 
 
-Route::get('/', function() {
-    return redirect('/projects');
-});
+// Route::get('/', function() {
+//     return redirect('/projects');
+// });
 // テスト用ここまで
 
 Auth::routes();
