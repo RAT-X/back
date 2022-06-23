@@ -22,7 +22,10 @@ Route::get('/load_flowchart', 'App\Http\Controllers\LoadFlowchartController@show
 Route::get('/flowchart', 'App\Http\Controllers\FlowchartPageController@show');
 
 // test用
-Route::get('/newpost', 'App\Http\Controllers\NewpostController@Newpost');
+Route::get('/newpost', 'App\Http\Controllers\NewpostController@add');
+// Route::post('/newpost', 'App\Http\Controllers\NewpostController@Newpost');
+Route::get('/insert', 'App\Http\Controllers\NewpostController@index');
+Route::post('/insert', 'App\Http\Controllers\NewpostController@create');
 
 Route::get('/projects', 'App\Http\Controllers\ProjectController@index')
 ->name('project.list'); // 一覧表示
