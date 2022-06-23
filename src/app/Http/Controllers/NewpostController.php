@@ -18,6 +18,17 @@ class NewpostController extends Controller
         return view('insert', ['projects' => $projects]);
     }
 
+    public function post(Request $request)
+    {
+        $projects = DB::select('select * from projects');
+        return view('insert', ['projects' => $projects]);
+    }
+
+    public function add(Request $request)
+    {
+        return view('newpost');
+    }
+
     // public function create(Request $request) {
     //     // 投稿したプロジェクトを受け取って変数に入れる
     //     $project_title = $request->input('project_title');
