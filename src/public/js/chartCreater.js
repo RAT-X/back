@@ -49,11 +49,11 @@ const tester2 = document.getElementsByClassName('fa-question')[0];
 
 
 input.addEventListener('input',inputExtender);
-tester2.addEventListener('click',addArea);
-input.addEventListener('keydown',pressShiftEnter);
+input.addEventListener('keydown',pressShiftArrow);
 input.addEventListener('keydown',pressEnter);
 input.addEventListener('keydown',styleAdjaster);
 
+let arrowCount = 2;
 
 function pressEnter(e){
     if(!e.isComposing && e.key === 'Enter'){
@@ -81,12 +81,12 @@ function pressEnter(e){
             const nextContext = nCanvas[i].getContext('2d');
             createDownArrow(nextContext,dAStart);
         }
+        arrowCount = 2;
     }
 }
 
 //boxチェンジ
-let arrowCount = 2;
-function pressShiftEnter(e){
+function pressShiftArrow(e){
     const wantClasses = this.parentElement.parentElement;
     const rejectClass = wantClasses.classList.contains('startEnd');
     if(!rejectClass && e.shiftKey && e.key === 'ArrowUp'){
@@ -105,6 +105,7 @@ function pressShiftEnter(e){
         changeBox();
     }
 }
+
 function changeBox(e){
     switch(arrowCount){
         case 0:
@@ -112,7 +113,18 @@ function changeBox(e){
             break;
         case 1:
             changeStyle('itemBox branch strongBr isHere');
-            addArea();
+            let isHere = document.getElementsByClassName('branch')[0];
+            const nextElement = isHere.parentElement.nextElementSibling;
+            const wNext = nextElement.nextElementSibling;
+            if(!wNext){
+                addArea();
+                const target = nextElement.lastElementChild.previousElementSibling;
+                target.classList.add('rightArrow');
+                const rA = document.getElementsByClassName('rightArrow')[0];
+                const thisHight = rA.getBoundingClientRect().height + 25;
+                const rAcontext = rA.getContext('2d');
+                createRightArrow(rAcontext, thisHight);
+            }
             break;
         case 2:
             changeStyle('itemBox process strongPr isHere');
@@ -256,8 +268,23 @@ function createDownArrow(xContext,width){
     xContext.stroke();
     xContext.closePath();
 }
+//右矢印
+function createRightArrow(xContext,height){
+    xContext.beginPath();
+    xContext.strokeStyle = 'red';
+    xContext.moveTo(0,height);
+    // xContext.moveTo(0,68);
+    xContext.lineTo(300,height);
+    // xContext.lineTo(300,68);
+    xContext.lineTo(300 - 20 , 90);
+    xContext.moveTo(300,height);
+    // xContext.moveTo(300,68);
+    xContext.lineTo(300 - 20 , 45);
+    xContext.stroke();
+    xContext.closePath();
+}
 
-//文字入力時の高さの伸展
+//----- 文字入力時の高さの伸展 --------
 const temporaly = document.getElementById('temporaly');
 function inputExtender(){
     temporaly.textContent = input.value;
