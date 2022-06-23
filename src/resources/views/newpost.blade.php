@@ -1,10 +1,16 @@
 @include("layouts.head")
 
+
 <div class="mainPageWrapper">
-    <form action="/" method="post">
+    <form action="/newpost" method="post">
+    <table>
         @csrf
-    プロジェクト名: <input type="text" name="project_title" />
-    コメント: <input type="text" name="comment" />
-    <input type="submit" />
+        <tr><th>ProjectTitle: </th><td><input type="text" name="project_title">
+            </td></tr>
+        <tr><th>Comment: </th><td><input type="text" name="comment">
+            </td></tr>
+        <tr><th></th><td><input type="submit" value="send">
+            </td></tr>
+    </table>
     </form>
 </div>
