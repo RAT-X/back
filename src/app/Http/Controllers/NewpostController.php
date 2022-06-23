@@ -12,9 +12,13 @@ use Illuminate\Support\Facades\Config;
 
 class NewpostController extends Controller
 {
-    public function Newpost() {
-        return view('newpost');
+    public function index(Request $request)
+    {
+        $projects = DB::select('select * from project');
+        return view('insert');
     }
+
+    public function
 
     public function create(Request $request) {
         // 投稿したプロジェクトを受け取って変数に入れる
