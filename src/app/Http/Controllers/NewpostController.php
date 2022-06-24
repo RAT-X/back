@@ -26,7 +26,12 @@ class NewpostController extends Controller
 
     public function add(Request $request)
     {
-        return view('newpost');
+        $param = [
+            'project_title' => $request->project_title,
+            'comment' => $request->comment,
+        ];
+        DB::table('projects')->insert($param);
+        return redirect('insert');
     }
 
     // public function create(Request $request) {
