@@ -19,7 +19,13 @@ Route::get('/top', 'App\Http\Controllers\TopPageController@index');
 Route::get('/welcome', 'App\Http\Controllers\WelcomeController@show');
 Route::get('/create_flowchart', 'App\Http\Controllers\MakeFlowchartController@show');
 Route::get('/load_flowchart', 'App\Http\Controllers\LoadFlowchartController@show');
-Route::get('/flowchart', 'App\Http\Controllers\FlowchartPageController@show');
+
+
+Route::get('/flowcharts', 'App\Http\Controllers\FlowchartPageController@index')
+->name('project.list'); // 一覧表示
+
+Route::get('/flowchart/{id}/{project_title}', 'App\Http\Controllers\FlowchartPageController@show')
+->name('project.detail');
 
 // test用
 Route::get('/newpost', 'App\Http\Controllers\NewpostController@add');
@@ -27,16 +33,11 @@ Route::get('/newpost', 'App\Http\Controllers\NewpostController@add');
 Route::get('/insert', 'App\Http\Controllers\NewpostController@index');
 Route::post('/insert', 'App\Http\Controllers\NewpostController@create');
 
-Route::get('/projects', 'App\Http\Controllers\ProjectController@index')
-->name('project.list'); // 一覧表示
+
 
 Route::get('/project/new', 'App\Http\Controllers\ProjectController@create')
 ->name('project.new'); // 新規作成
 
-
-
-Route::get('/project/{id}/{project_title}', 'App\Http\Controllers\ProjectController@show')
-->name('project.detail'); // 作成済みプロジェクトを開く(詳細ページ)
 
 
 Route::get('/project/new', 'App\Http\Controllers\ProjectController@create')
