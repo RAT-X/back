@@ -51,6 +51,7 @@ const tester2 = document.getElementsByClassName('fa-question')[0];
 input.addEventListener('input',inputExtender);
 input.addEventListener('keydown',pressShiftArrow);
 input.addEventListener('keydown',pressEnter);
+input.addEventListener('keydown',addClasses);
 input.addEventListener('keydown',styleAdjaster);
 
 let arrowCount = 2;
@@ -106,24 +107,21 @@ function pressShiftArrow(e){
     }
 }
 
-function changeBox(e){
+function changeBox(){
     switch(arrowCount){
         case 0:
             changeStyle('itemBox startEnd2 strongBE2 isHere');
             break;
         case 1:
             changeStyle('itemBox branch strongBr isHere');
-            let isHere = document.getElementsByClassName('branch')[0];
-            const nextElement = isHere.parentElement.nextElementSibling;
+            let isHere = document.getElementsByClassName('isHere')[0];
+
+            let thisElement = isHere.parentElement;
+            let nextElement = thisElement.nextElementSibling;
             const wNext = nextElement.nextElementSibling;
+
             if(!wNext){
                 addArea();
-                const target = nextElement.lastElementChild.previousElementSibling;
-                target.classList.add('rightArrow');
-                const rA = document.getElementsByClassName('rightArrow')[0];
-                const thisHight = rA.getBoundingClientRect().height + 25;
-                const rAcontext = rA.getContext('2d');
-                createRightArrow(rAcontext, thisHight);
             }
             break;
         case 2:
@@ -227,6 +225,41 @@ function removeStrong(){
     strongs.forEach((value)=>{isHere.classList.remove(value);});
 }
 
+function addClasses(e){
+    if(e.shiftKey && e.key === 'ArrowUp'){
+        switch(arrowCount){
+            case 1:
+                addBranchClass();
+                break;
+        }
+    }
+    if(e.shiftKey && e.key === 'ArrowDown'){
+        switch(arrowCount){
+            case 1:
+                addBranchClass();
+                break;
+        }
+    }
+}
+
+function addBranchClass(){
+    const isHere = document.getElementsByClassName('isHere')[0];
+    const thisElement = isHere.parentElement;
+    const nextElement = thisElement.nextElementSibling;
+    const thisChildren = thisElement.children;
+    const nextChildren = nextElement.children;
+    for(let i=0; i<thisChildren.length; i++){
+        if(thisChildren[i].classList.contains('branch')){
+            if(!nextChildren[i].classList.contains('rightArrow')){
+                nextChildren[i].classList.add('rightArrow');
+                const thisHeight = nextChildren[i].height / 2;
+                const contex = nextChildren[i].getContext('2d');
+                createRightArrow(contex, thisHeight);
+            }
+        }
+    }
+}
+
 //変更後の高さ調節
 function styleAdjaster(){
     // area0の高さ調整
@@ -273,13 +306,10 @@ function createRightArrow(xContext,height){
     xContext.beginPath();
     xContext.strokeStyle = 'red';
     xContext.moveTo(0,height);
-    // xContext.moveTo(0,68);
     xContext.lineTo(300,height);
-    // xContext.lineTo(300,68);
     xContext.lineTo(300 - 20 , 90);
     xContext.moveTo(300,height);
-    // xContext.moveTo(300,68);
-    xContext.lineTo(300 - 20 , 45);
+    xContext.lineTo(300 - 20 , 59);
     xContext.stroke();
     xContext.closePath();
 }
