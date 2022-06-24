@@ -15,11 +15,17 @@ class FlowchartPageController extends Controller
         return view('project_list', ['projects' => $projects]);
     }
 
-    
+
     public function show($id) {
         // return view('flowchart');
         $project = Project::find($id);
 
         return view('layouts.base_layouts.fc_base_layout', ['project' => $project]);
+    }
+
+    //middlewareによる認証制限を追加
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 }
