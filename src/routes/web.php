@@ -31,7 +31,7 @@ Route::get('/flowchart/{id}/{project_title}', 'App\Http\Controllers\FlowchartPag
 Route::get('/newpost', 'App\Http\Controllers\NewpostController@add');
 // Route::post('/newpost', 'App\Http\Controllers\NewpostController@Newpost');
 Route::get('/insert', 'App\Http\Controllers\NewpostController@index');
-Route::post('/insert', 'App\Http\Controllers\NewpostController@create');
+Route::post('/newpost', 'App\Http\Controllers\NewpostController@create');
 
 
 
