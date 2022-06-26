@@ -128,7 +128,7 @@ function changeBox(){
             const wNext = nextElement.nextElementSibling;
 
             if(shiftCount === 1){
-                wNext ? false : addArea();
+                wNext ? interruptArea() : addArea();
             }
 
             wNext ? false : addBranchClass();
@@ -183,10 +183,52 @@ function addArea(){
             for(let n=0; n<baseElement.children.length; n++){
                 n % 2 === 0 ? evenBox() : oddBox();
                 function evenBox(){
-                    const wantClass = thisParent.children[n].classList.contains('branch');
-                    console.log(wantClass);
-                    isHere = document.getElementsByClassName('isHere');
-                    createItems('div','',oddheight);//
+                    createItems('div','',oddheight);
+                }
+                function oddBox(){
+                    createItems('canvas','arrow','70px');
+                }
+            }
+        }
+        function createItems(item,cn,sh){
+            const nextItems = document.createElement(item);
+            nextItems.className = cn;
+            nextItems.style.height = sh;
+            nextArea.insertAdjacentElement('beforeend',nextItems);
+        }
+    }
+}
+
+function interruptArea(){
+    for(let i=0; i<2; i++){
+        const nextArea = document.createElement('div');
+        nextArea.className = 'area';
+        isHere = document.getElementsByClassName('isHere')[0];
+        const thisParent = isHere.parentElement;
+        const thisChildren = thisParent.children;
+        thisParent.insertAdjacentElement('afterend',nextArea);
+
+        baseElement = document.getElementsByClassName('area')[1];
+        allArea = document.getElementsByClassName('area');
+
+        i % 2 === 0 ? evenArea() : oddArea();
+
+        function oddArea(){
+            for(let n=0; n<baseElement.children.length; n++){
+                nextArea.style.width = evenWidth;
+                createItems('canvas','arrow','');
+            }
+        }
+        function evenArea(){
+            for(let n=0; n<baseElement.children.length; n++){
+                n % 2 === 0 ? evenBox() : oddBox();
+                function evenBox(){
+                    if(n+2 <baseElement.children.length){
+                        const containItem = thisChildren[n+2].classList.contains('isHere');
+                        containItem ? createItems('canvas','',oddheight) :createItems('div','',oddheight);
+                    }else{
+                        createItems('div','',oddheight);
+                    }
                 }
                 function oddBox(){
                     createItems('canvas','arrow','70px');
