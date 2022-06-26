@@ -1,216 +1,137 @@
-const allArea = document.getElementsByClassName('area');
-const input = document.createElement('textarea');
-const isHere = document.getElementsByClassName('isHere');
-
-/* ca初期値の設定 */
-const begin = document.getElementById('startEnd');
-begin.classList.add('stBE');
-
-/* スタイル整備 */
-// Area0のボックス初期値の成形
-const area0Arrows = allArea[0].getElementsByClassName('arrow');
-const area1Arrows = allArea[1].getElementsByClassName('arrow');
-const areaChildren = allArea[1].children;
-const area1Elements = allArea[1].children;
-
-for(let i = 0; i < area1Arrows.length; i++){
-    area1Arrows[i].style.height = area0Arrows[i].getBoundingClientRect().height + 'px';
-}
-
-for(let i=0; i< area0Arrows.length; i++){
-    if(i % 2 === 0){
-        area0Arrows[i].style.height = areaChildren[i].getBoundingClientRect().height + 6 + 'px';
-    }
-}
-
-//Area0のElement高さの伸長
-input.addEventListener('input',area0CanvasExtender);
-function area0CanvasExtender(){
-    for(let i = 0; i < area0Arrows.length; i++){
-        if(i%2===0){
-            area0Arrows[i].style.height = areaChildren[i].getBoundingClientRect().height + 'px';
-        }
-    }
-}
-
-//Area1以降のElement<高さ>の設定
-for(let i = 2; i < allArea.length; i++){
-    if(i % 2 === 0){
-        const thisArrows = allArea[i].getElementsByClassName('arrow');
-        const previousDivs = allArea[i-1].children;
-        for(let n = 0; n < thisArrows.length; n++){
-            thisArrows[n].style.height = previousDivs[n].getBoundingClientRect().height + 'px';
-        }
-    }
-}
-
-//Area1以降のElement<幅の伸長>
-input.addEventListener('input',afterCanvasExtender);
-function afterCanvasExtender(){
-    for(let i = 1; i < allArea.length; i++){
-        if(i % 2 === 0){
-            input.addEventListener('input',evenArea);
-        }
-        function evenArea(){
-            const areaXAllChildren = allArea[i].children;
-            const areaPXAllChildren = allArea[i-1].children;
-            for(let n = 0; n < areaXAllChildren.length; n++){
-                if(n % 2 === 0){
-                    areaXAllChildren[n].style.height = areaPXAllChildren[n].getBoundingClientRect().height + 'px';
-                }
-            }
-        }
-    }
-}
-
-/* */
-
-//最初のボックス設定
-const firstItemBox = allArea[1].querySelectorAll('.empty')[0];
-firstItemBox.className = 'itemBox startEnd strongBE isHere';
-
-//最初の矢印の設定
-const firstBoxUnderCanvas = allArea[1].querySelectorAll('.arrow')[0];
-const firstAllWidth = firstBoxUnderCanvas.getBoundingClientRect().width;
-const firstHalfWidth = firstAllWidth/1.35;
-const firstContext = firstBoxUnderCanvas.getContext('2d');
-createDownArrow(firstContext,firstHalfWidth);
-
-//↓生成
-function createDownArrow(xContext,width){
-    xContext.beginPath();
-    xContext.strokeStyle = '#000';
-    xContext.moveTo(width,0);
-    xContext.lineTo(width,150);
-    xContext.lineTo(width + 10 , 130);
-    xContext.moveTo(width,150);
-    xContext.lineTo(width - 10 , 130);
-    xContext.stroke();
-    xContext.closePath();
-}
-//branchのarrow
-function createRightArrow(xContext){
-    xContext.beginPath();
-    xContext.strokeStyle = 'red';
-    xContext.moveTo(0,68);
-    xContext.lineTo(300,68);
-    xContext.lineTo(300 - 20 , 90);
-    xContext.moveTo(300,68);
-    xContext.lineTo(300 - 20 , 45);
-    xContext.stroke();
-    xContext.closePath();
-}
-
-// 最初のボックスにinputタグを挿入
-const p = document.createElement('p');
-firstItemBox.appendChild(p).appendChild(input);
+const input = document.querySelector('textarea');
 input.focus();
 
-// inputタグ幅の伸縮
-const temporaly = document.getElementById('temporaly');
-input.addEventListener('input',inputExtender);
-function inputExtender(){
-    temporaly.textContent = input.value;
-    const spanWidth = temporaly.getBoundingClientRect().width;
-    const spanHeight = temporaly.getBoundingClientRect().height;
-    input.style.width = spanWidth + 'px';
-    input.style.height = spanHeight + 'px';
+const flowChartArea = document.getElementById('flowChartArea');
+const oddWidth = '150px';
+const oddheight = '25px';
+const evenWidth = '90px';
+let allArea = flowChartArea.getElementsByClassName('area');
+let baseElement = allArea[1];
+let isHere;
+
+// ---------- 初期値の設定 -------------
+//基準値:Area1
+baseElement.firstElementChild.className = 'startEnd strongBE isHere';
+baseElement.firstElementChild.firstElementChild.className = 'itemBox';
+//下矢印の追加
+const downArrow = document.getElementsByClassName('downArrow');
+const dAStart = downArrow[0].getBoundingClientRect().width / 2;
+const dAContext = downArrow[0].getContext('2d');
+createDownArrow(dAContext,dAStart);
+
+for(let i=0; i<baseElement.children.length; i++){
+    i % 2 === 0 ? setBaseBoxHeight() : setBaseCanvasHeight();
+    function setBaseBoxHeight(){
+        baseElement.children[i].style.height = oddheight;
+    }
+    function setBaseCanvasHeight(){
+        baseElement.children[i].style.height = '70px';
+    }
 }
 
+//Area0,2の初期値と全体のアイテム幅
+for(let i=0; i<3; i++){
+    i % 2 === 0 ? evenArea() : oddArea();
+    function evenArea(){
+        const baseItems = baseElement.children;
+        const areaItems = allArea[i].children;
+        allArea[i].style.width = evenWidth;
+        for(let n=0; n<baseItems.length; n++){
+            areaItems[n].style.height = baseItems[n].getBoundingClientRect().height + 'px';
+        }
+    }
+    function oddArea(){
+        allArea[i].style.width = oddWidth;
+    }
+}
+
+//増減テスト
+const tester2 = document.getElementsByClassName('fa-question')[0];
+
+
+input.addEventListener('input',inputExtender);
+input.addEventListener('keydown',pressShiftArrow);
+input.addEventListener('keydown',pressEnter);
+input.addEventListener('keydown',styleAdjaster);
 
 let arrowCount = 2;
-//keydownアクション
-input.addEventListener('keydown',pressEnter);
+let shiftCount = 0;
 
 function pressEnter(e){
     if(!e.isComposing && e.key === 'Enter'){
-        arrowCount = 2;
-        const isHere = document.getElementsByClassName('isHere')[0];
-        const strongs = ['strongBE','strongBE2','strongBr','strongPr','strongIn','strongLs','strongLe','strongDp'];
-        strongs.forEach((value)=>{isHere.classList.remove(value);});
+        isHere = document.getElementsByClassName('isHere')[0];
+
+        removeStrong();
+        input.replaceWith(input.value);
+        isHere.style.height = isHere.firstElementChild.getBoundingClientRect().height + 'px';
+        addBox();
+        isHere.nextElementSibling.nextElementSibling.className = 'process strongPr isHere';
         isHere.classList.remove('isHere');
 
-        const div = document.createElement('div');
-        div.className = 'itemBox process strongPr isHere';
-
-        const canvas = document.createElement('canvas');
-        canvas.className = 'arrow';
-        canvas.style.height = '50px';
-
-
-        const baseParent = this.parentElement.parentElement.parentElement;
-        baseParent.appendChild(div);
-        baseParent.appendChild(canvas);
-
-        const thisElement = document.getElementsByClassName('isHere')[0];
-        const thisCanvas = thisElement.nextElementSibling;
-        const thisContext = thisCanvas.getContext('2d');
-        createDownArrow(thisContext,firstHalfWidth);
-
-        input.replaceWith(input.value);
+        isHere = document.getElementsByClassName('isHere')[0];
+        const p = document.createElement('p');
+        p.className = 'itemBox';
+        p.insertAdjacentElement('beforeend',input);
+        isHere.appendChild(p);
+        isHere = document.getElementsByClassName('isHere')[0];
+        isHere.nextElementSibling.className = "arrow downArrow";
         input.value = '';
-        temporaly.textContent = input.value;
-
-        const newP = document.createElement('p');
-        thisElement.appendChild(newP);
-        newP.appendChild(input);
         input.focus();
 
-        //０行目のcanvasの生成
-        if(baseParent.classList.contains('area1')){
-            for(let i = 1; i < 3; i++){
-                allArea[0].insertAdjacentHTML('beforeend','<canvas class="arrow">');
-            }
-        };
-
-        const elementX = document.getElementsByClassName('area');
-        for(let i=2; i<elementX.length; i++){
-            i % 2 === 0 ? evenArea() : oddArea();
-            function evenArea(){
-
-            }
-            function oddArea(){
-
-            }
+        const nCanvas = document.getElementsByClassName('downArrow');
+        for(let i=0; i<nCanvas.length; i++){
+            const nextContext = nCanvas[i].getContext('2d');
+            createDownArrow(nextContext,dAStart);
         }
-        //2行目以降右側のcanvasの生成
-        for(let i = 1; i < 3; i++){
-            baseParent.nextElementSibling.insertAdjacentHTML('beforeend','<canvas class="arrow">');
-        }//三項演算子だとバグが出る
+        arrowCount = 2;
+        shiftCount = 0;
     }
 }
 
 //boxチェンジ
-input.addEventListener('keydown',addArrowCount);
-
-function addArrowCount(e){
+function pressShiftArrow(e){
     const wantClasses = this.parentElement.parentElement;
     const rejectClass = wantClasses.classList.contains('startEnd');
     if(!rejectClass && e.shiftKey && e.key === 'ArrowUp'){
         arrowCount += 1;
+        shiftCount += 1;
         if(arrowCount === 8){
             arrowCount = 0;
         }
     }
     if(!rejectClass && e.shiftKey && e.key === 'ArrowDown'){
         arrowCount -= 1;
+        shiftCount += 1;
         if(arrowCount === -1){
             arrowCount = 7;
         }
     }
-    if(!rejectClass){
+    if(!rejectClass && e.shiftKey && e.key === 'ArrowUp'){
+        changeBox();
+    }
+    if(!rejectClass && e.shiftKey && e.key === 'ArrowDown'){
         changeBox();
     }
 }
 
-function changeBox(e){
+function changeBox(){
     switch(arrowCount){
         case 0:
             changeStyle('itemBox startEnd2 strongBE2 isHere');
             break;
         case 1:
             changeStyle('itemBox branch strongBr isHere');
-            addAreas();
+            isHere = document.getElementsByClassName('isHere')[0];
+
+            let thisElement = isHere.parentElement;
+            let nextElement = thisElement.nextElementSibling;
+            const wNext = nextElement.nextElementSibling;
+
+            if(shiftCount === 1){
+                wNext ? false : addArea();
+            }
+
+            wNext ? false : addBranchClass();
             break;
         case 2:
             changeStyle('itemBox process strongPr isHere');
@@ -234,58 +155,180 @@ function changeBox(e){
 }
 
 function changeStyle(classname){
-    const currentL = document.getElementsByClassName('isHere')[0];
-    currentL.className = classname;
+    isHere = document.getElementsByClassName('isHere')[0];
+    isHere.className = classname;
 }
 
-function addAreas(){
-    const currentL = document.getElementsByClassName('isHere')[0];
-    const thisArea = currentL.parentElement;
-    const thisAreaItemsCount = thisArea.childElementCount;
-    const rootElement = thisArea.parentElement;
-    if(!thisArea.nextElementSibling.nextElementSibling){
+//boxの追加
+function addArea(){
+    for(let i=0; i<2; i++){
         const nextArea = document.createElement('div');
-        const wNextArea = document.createElement('div');
         nextArea.className = 'area';
-        wNextArea.className = 'area';
-        const areaCount = document.getElementsByClassName('area').length;
-        nextArea.classList.add('oddArea');
-        nextArea.classList.add('area' + areaCount);
-        wNextArea.classList.add('evenArea');
-        wNextArea.classList.add('area' + (areaCount+1));
-        rootElement.insertAdjacentElement('beforeend',nextArea);
-        rootElement.insertAdjacentElement('beforeend',wNextArea);
-        for(let i = 0; i<thisAreaItemsCount; i++){
-            i%2 === 0 ? addEvenBox() : addOddBox() ;
-            function addEvenBox(){
-                const innerItem = document.createElement('div');
-                innerItem.className = 'itemBox';
-                nextArea.insertAdjacentElement('beforeend',innerItem);
-            }
-            function addOddBox(){
-                const innerItem = document.createElement('canvas');
-                innerItem.className = 'arrow';
-                innerItem.style.height = '50px';
-                nextArea.insertAdjacentElement('beforeend',innerItem);
-            }
+        isHere = document.getElementsByClassName('isHere')[0];
+        const thisParent = isHere.parentElement;
+        thisParent.insertAdjacentElement('afterend',nextArea);
 
-            const wNCanvases = document.createElement('canvas');
-            wNCanvases.className = 'arrow';
-            thisArea.children[i].getBoundingClientRect().height;
-            wNCanvases.style.height = thisArea.children[i].getBoundingClientRect().height + 'px';
-            wNextArea.insertAdjacentElement('beforeend',wNCanvases);
+        baseElement = document.getElementsByClassName('area')[1];
+        allArea = document.getElementsByClassName('area');
 
-            if(thisArea.children[i].classList.contains('branch')){
-                const rightArrowClass = thisArea.nextElementSibling.getElementsByClassName('arrow')[i];
-                const rAContext = rightArrowClass.getContext('2d');
-                createRightArrow(rAContext);
-            };
+        i % 2 === 0 ? evenArea() : oddArea();
+
+        function oddArea(){
+            for(let n=0; n<baseElement.children.length; n++){
+                nextArea.style.width = evenWidth;
+                createItems('canvas','arrow','');
+            }
+        }
+        function evenArea(){
+            for(let n=0; n<baseElement.children.length; n++){
+                n % 2 === 0 ? evenBox() : oddBox();
+                function evenBox(){
+                    const wantClass = thisParent.children[n].classList.contains('branch');
+                    console.log(wantClass);
+                    isHere = document.getElementsByClassName('isHere');
+                    createItems('div','',oddheight);//
+                }
+                function oddBox(){
+                    createItems('canvas','arrow','70px');
+                }
+            }
+        }
+        function createItems(item,cn,sh){
+            const nextItems = document.createElement(item);
+            nextItems.className = cn;
+            nextItems.style.height = sh;
+            nextArea.insertAdjacentElement('beforeend',nextItems);
         }
     }
 }
 
-// 右矢印の自動設定
+function addBox(){
+    baseElement = document.getElementsByClassName('area')[1];
+    allArea = document.getElementsByClassName('area');
+    for(let i=0; i<allArea.length; i++){
+        i % 2 === 0 ? evenArea() : oddArea();
+        function evenArea(){
+            for(let n=0; n<2; n++){
+                createItems('canvas','arrow','');
+            }
+        }
+        function oddArea(){
+            for(let n=0; n<2; n++){
+                n % 2 === 0 ? evenItems() : oddItems();
+                function evenItems(){
+                    createItems('div','',oddheight);
+                }
+                function oddItems(){
+                    createItems('canvas','arrow','70px');
+                }
+            }
+        }
+        //アイテムの生成
+        function createItems(item, cn, sh){
+            const nextItems = document.createElement(item);
+            nextItems.className = cn;
+            nextItems.style.height = sh;
+            allArea[i].insertAdjacentElement('beforeend',nextItems);
+        }
+    }
+}
 
+function removeStrong(){
+    isHere = document.getElementsByClassName('isHere')[0];
+    const strongs = ['strongBE','strongBE2','strongBr','strongPr','strongIn','strongLs','strongLe','strongDp'];
+    strongs.forEach((value)=>{isHere.classList.remove(value);});
+}
+
+function addBranchClass(){
+    isHere = document.getElementsByClassName('isHere')[0];
+    baseElement = isHere.parentElement;
+    nextElement = baseElement.nextElementSibling;
+    const wNextElement = baseElement.nextElementSibling.nextElementSibling;
+    const thisChildren = baseElement.children;
+    const nextChildren = nextElement.children;
+    const wNextChildren = wNextElement.children;
+    for(let i=0; i<thisChildren.length; i++){
+        if(thisChildren[i].classList.contains('branch')){
+            if(!nextChildren[i].classList.contains('rightArrow')){
+                nextChildren[i].classList.add('rightArrow');
+                const thisHeight = nextChildren[i].height / 2;
+                const thisWidth = nextChildren[i].width;
+                const wNextHeight = wNextChildren[i].getBoundingClientRect().height;
+                const difference = thisHeight - wNextHeight;
+                const contex = nextChildren[i].getContext('2d');
+                createRightArrow(contex, thisHeight ,thisWidth, difference);
+            }
+        }
+    }
+}
+
+//変更後の高さ調節
+function styleAdjaster(){
+    // area0の高さ調整
+    const area0 = allArea[0];
+    for(let i=0; i<area0.children.length; i++){
+        const itemX = area0.children[i];
+        baseElement = document.getElementsByClassName('area')[1];
+        itemX.style.height = baseElement.children[i].getBoundingClientRect().height + 'px';
+    }
+
+    // area2以降の高さ調節
+    for(let i=2; i<allArea.length; i++){
+        i % 2 === 0 ? evenArea() : oddArea() ;
+        function evenArea(){
+            const areaX = allArea[i];
+            for(let n=0; n<areaX.children.length; n++){
+                areaX.children[n].style.height = allArea[i-1].children[n].getBoundingClientRect().height + 'px';
+            }
+        }
+        function oddArea(){
+            const areaX = allArea[i];
+            for(let n=0; n<areaX.children.length; n++){
+                //
+            }
+        }
+    }
+}
+
+//----- 矢印の生成 -------
+//下矢印
+function createDownArrow(xContext,width){
+    xContext.beginPath();
+    xContext.strokeStyle = '#000';
+    xContext.moveTo(width,0);
+    xContext.lineTo(width,150);
+    xContext.lineTo(width + 10 , 130);
+    xContext.moveTo(width,150);
+    xContext.lineTo(width - 10 , 130);
+    xContext.stroke();
+    xContext.closePath();
+}
+//右矢印
+function createRightArrow(xContext,height,width,diff){
+    xContext.beginPath();
+    xContext.strokeStyle = 'red';
+    xContext.moveTo(0,height);
+    xContext.lineTo(width/2,height);
+    xContext.lineTo(width/2,height-diff);
+    xContext.lineTo(width,height-diff);
+    xContext.lineTo(width - 20 , height-diff+10);
+    xContext.moveTo(width,height-diff);
+    xContext.lineTo(width - 20 , height-diff-10);
+    xContext.stroke();
+    xContext.closePath();
+}
+
+//----- 文字入力時の高さの伸展 --------
+const temporaly = document.getElementById('temporaly');
+function inputExtender(){
+    temporaly.textContent = input.value;
+    const spanWidth = temporaly.getBoundingClientRect().width;
+    const spanHeight = temporaly.getBoundingClientRect().height;
+    input.style.width = spanWidth + 'px';
+    input.style.height = spanHeight + 5 + 'px';
+    // this.parentElement.style.height = spanHeight + 20 + 'px';
+    this.parentElement.parentElement.style.height = spanHeight + 20 + 'px';
+}
 
 //JSON処理
 let values;
