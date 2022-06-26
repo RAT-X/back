@@ -131,7 +131,7 @@ function changeBox(){
                 wNext ? interruptArea() : addArea();
             }
 
-            wNext ? false : addBranchClass();
+            wNext ? getStraitLineClass() : addBranchClass();
             break;
         case 2:
             changeStyle('itemBox process strongPr isHere');
@@ -216,6 +216,7 @@ function interruptArea(){
         function oddArea(){
             for(let n=0; n<baseElement.children.length; n++){
                 nextArea.style.width = evenWidth;
+                
                 createItems('canvas','arrow','');
             }
         }
@@ -223,9 +224,9 @@ function interruptArea(){
             for(let n=0; n<baseElement.children.length; n++){
                 n % 2 === 0 ? evenBox() : oddBox();
                 function evenBox(){
-                    if(n+2 <baseElement.children.length){
-                        const containItem = thisChildren[n+2].classList.contains('isHere');
-                        containItem ? createItems('canvas','',oddheight) :createItems('div','',oddheight);
+                    if(n+(allArea.length-4) <baseElement.children.length){
+                        const containItem = thisChildren[n+(allArea.length-4)].classList.contains('isHere');
+                        containItem ? createItems('canvas','arrow straitLine',oddheight) :createItems('div','',oddheight);
                     }else{
                         createItems('div','',oddheight);
                     }
@@ -304,6 +305,18 @@ function addBranchClass(){
     }
 }
 
+function getStraitLineClass(){
+    const straitClasses = document.getElementsByClassName('straitLine');
+    for(let i=0; i<straitClasses.length; i++){
+        const contex = straitClasses[i].getContext('2d');
+        const thisHeight = straitClasses[i].height/2;
+        const nextHeight = straitClasses[i].height/2;//
+        const thisWidth = straitClasses[i].width;
+        const difference = thisHeight - nextHeight;
+        createStraitArrow(contex,thisHeight,thisWidth,difference);
+    }
+}
+
 //変更後の高さ調節
 function styleAdjaster(){
     // area0の高さ調整
@@ -356,6 +369,17 @@ function createRightArrow(xContext,height,width,diff){
     xContext.lineTo(width - 20 , height-diff+10);
     xContext.moveTo(width,height-diff);
     xContext.lineTo(width - 20 , height-diff-10);
+    xContext.stroke();
+    xContext.closePath();
+}
+
+function createStraitArrow(xContext,height,width,diff){
+    xContext.beginPath();
+    xContext.strokeStyle = 'red';
+    xContext.moveTo(0,height);
+    xContext.lineTo(width/2,height);
+    xContext.lineTo(width/2,height-diff);
+    xContext.lineTo(width,height-diff);
     xContext.stroke();
     xContext.closePath();
 }
