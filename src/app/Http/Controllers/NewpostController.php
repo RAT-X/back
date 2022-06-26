@@ -29,25 +29,20 @@ class NewpostController extends Controller
         return view('newpost');
     }
 
-    // public function create(Request $request) {
-    //     // 投稿したプロジェクトを受け取って変数に入れる
-    //     $project_title = $request->input('project_title');
-    //     $comment = $request->input('comment');
+    public function create(Request $request)
+    {
+        $user_id = Auth::user()->id;
 
-    //     // ログインしているユーザーIDを取得
-    //     $user_id = Auth::id();
+        $param = [
+            'user_id' => $user_id,
+            'project_title' => $request->project_title,
+            'comment' => $request->comment,
+        ];
 
-    //     DB::insert([
-    //         "user_id" => $user_id,
-    //         'project_title' => $project_title,
-    //         'comment' => $comment,
-    //     ]
+        DB::table('projects')->insert($param);
 
-    //     );
-
-    //     return view('/');
-
-    // }
+        return redirect('/insert');
+    }
 
     //middlewareによる認証制限を追加
     public function __construct()
