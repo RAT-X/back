@@ -69,6 +69,18 @@ function pressEnter(e){
         isHere.classList.remove('isHere');
 
         isHere = document.getElementsByClassName('isHere')[0];
+        if(isHere.parentElement.nextElementSibling.nextElementSibling){
+            const wantChildren = isHere.parentElement.nextElementSibling.nextElementSibling.children;
+            const baseChildren = isHere.parentElement.children;
+            for(let i=0; i<baseChildren.length; i++){
+                if(baseChildren[i].classList.contains('isHere')){
+                    wantChildren[i-2].className = 'process';
+                    wantChildren[i-2].style.height = '50px';
+                }
+            }
+        }
+
+        isHere = document.getElementsByClassName('isHere')[0];
         const p = document.createElement('p');
         p.className = 'itemBox';
         p.insertAdjacentElement('beforeend',input);
@@ -216,6 +228,7 @@ function interruptArea(){
 
         function oddArea(){
             lineupItems('canvas','arrow rightArrow');
+            isHere.parentElement.nextElementSibling.style.width = '90px';
         }
         function evenArea(){
             lineupItems('div','');
