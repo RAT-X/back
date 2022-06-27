@@ -78,9 +78,9 @@ function pressEnter(e){
         input.value = '';
         input.focus();
 
-        const nCanvas = document.getElementsByClassName('downArrow');
-        for(let i=0; i<nCanvas.length; i++){
-            const nextContext = nCanvas[i].getContext('2d');
+        const downArrows = document.getElementsByClassName('downArrow');
+        for(let i=0; i<downArrows.length; i++){
+            const nextContext = downArrows[i].getContext('2d');
             createDownArrow(nextContext,dAStart);
         }
         arrowCount = 2;
@@ -214,21 +214,20 @@ function interruptArea(){
         i % 2 === 0 ? evenArea() : oddArea();
 
         function oddArea(){
-            for(let n=0; n<baseElement.children.length; n++){
-                nextArea.style.width = evenWidth;
-                
-                createItems('canvas','arrow','');
-            }
+            lineupItems('canvas','arrow rightArrow');
         }
         function evenArea(){
+            lineupItems('div','');
+        }
+        function lineupItems(item,classes){
             for(let n=0; n<baseElement.children.length; n++){
                 n % 2 === 0 ? evenBox() : oddBox();
                 function evenBox(){
-                    if(n+(allArea.length-4) <baseElement.children.length){
-                        const containItem = thisChildren[n+(allArea.length-4)].classList.contains('isHere');
-                        containItem ? createItems('canvas','arrow straitLine',oddheight) :createItems('div','',oddheight);
-                    }else{
-                        createItems('div','',oddheight);
+                    if(n === 0){
+                        createItems('canvas','arrow','30px');
+                    }
+                    if(n >= 2){
+                        baseElement.children[n].classList.contains('isHere') ? createItems(item,classes,'') : createItems('canvas','arrow straitLine','28.5px');
                     }
                 }
                 function oddBox(){
