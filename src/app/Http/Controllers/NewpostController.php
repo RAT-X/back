@@ -24,7 +24,7 @@ class NewpostController extends Controller
         return view('insert', ['projects' => $projects]);
     }
 
-    public function add(Request $request)
+    public function store(Request $request)
     {
         return view('newpost');
     }

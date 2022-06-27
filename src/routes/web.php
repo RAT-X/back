@@ -28,8 +28,8 @@ Route::get('/flowchart/{id}/{project_title}', 'App\Http\Controllers\FlowchartPag
 ->name('project.detail');
 
 // test用
-Route::get('/newpost', 'App\Http\Controllers\NewpostController@add');
-// Route::post('/newpost', 'App\Http\Controllers\NewpostController@Newpost');
+Route::get('/newpost', 'App\Http\Controllers\NewpostController@store')->name('project.store');
+
 Route::get('/insert', 'App\Http\Controllers\NewpostController@index');
 Route::post('/newpost', 'App\Http\Controllers\NewpostController@create');
 
@@ -42,8 +42,7 @@ Route::get('/project/new', 'App\Http\Controllers\ProjectController@create')
 
 Route::get('/project/new', 'App\Http\Controllers\ProjectController@create')
 ->name('project.new'); // 新規作成
-// Route::get('/project', 'App\Http\Controllers\ProjectController@store')
-// ->name('project.store'); // 保存
+
 
 
 
