@@ -312,18 +312,18 @@ function addRightArrowClass(){
     }
 }
 
-function getRightArrowClass(){//
+function getRightArrowClass(){//仮
     const rightArrowClasses = document.getElementsByClassName('rightArrow');
-    for(let i=0; i<rightArrowClasses.length; i++){
-        const nextChildren = rightArrowClasses[i].parentElement.nextElementSibling.children;
-        const nextChild = nextChildren[i];
-        const contex = rightArrowClasses[i].getContext('2d');
-        const thisHeight = rightArrowClasses[i].height/2;
-        const nextHeight = nextChild.getBoundingClientRect().height*2;
-        const thisWidth = rightArrowClasses[i].width;
+    // for(let i=0; i<rightArrowClasses.length; i++){
+        const nextChildren = rightArrowClasses[0].parentElement.nextElementSibling.children;
+        const nextChild = nextChildren[0];
+        const contex = rightArrowClasses[0].getContext('2d');
+        const thisHeight = rightArrowClasses[0].height/2;
+        const nextHeight = nextChild.getBoundingClientRect().height*3;
+        const thisWidth = rightArrowClasses[0].width;
         const difference = thisHeight-nextHeight;
         createRightArrow(contex,thisHeight,thisWidth,difference);
-    }
+    // }
 }
 
 function getStraitLineClass(){
