@@ -19,7 +19,7 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->string('project_title');
-            $table->string('comment');
+            $table->string('comment')->nullable();
             $table->timestamps();
         });
     }

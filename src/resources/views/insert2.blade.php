@@ -7,7 +7,6 @@
             <tr>
                 <td>{{ $project->id }}</td>
                 <td>{{ $project->project_title }}</td>
-                <!-- <td>{{ $project->comment }}</td> -->
             </tr>
         @endforeach
     </table>
