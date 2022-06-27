@@ -76,6 +76,7 @@ function pressEnter(e){
                 if(baseChildren[i].classList.contains('isHere')){
                     wantChildren[i-2].className = 'process';
                     wantChildren[i-2].style.height = '50px';
+                    wantChildren[i-1].classList.add('downArrow');
                 }
             }
         }
@@ -302,28 +303,25 @@ function addRightArrowClass(){
     const wNextElement = baseElement.nextElementSibling.nextElementSibling;
     const thisChildren = baseElement.children;
     const nextChildren = nextElement.children;
-    const wNextChildren = wNextElement.children;
     for(let i=0; i<thisChildren.length; i++){
         if(thisChildren[i].classList.contains('branch')){
-                nextChildren[i].classList.add('rightArrow');
-        //         const thisHeight = nextChildren[i].height / 2;
-        //         const thisWidth = nextChildren[i].width;
-        //         const wNextHeight = wNextChildren[i].getBoundingClientRect().height;
-        //         const difference = thisHeight - wNextHeight;
-        //         const contex = nextChildren[i].getContext('2d');
-        //         createRightArrow(contex, thisHeight ,thisWidth, difference);
+            nextChildren[i].classList.add('rightArrow');
+            // const wNextChildren = wNextElement.children;
+            // const wNextHeight = wNextChildren[i].getBoundingClientRect().height;
         }
     }
 }
 
-function getRightArrowClass(){
+function getRightArrowClass(){//
     const rightArrowClasses = document.getElementsByClassName('rightArrow');
     for(let i=0; i<rightArrowClasses.length; i++){
+        const nextChildren = rightArrowClasses[i].parentElement.nextElementSibling.children;
+        const nextChild = nextChildren[i];
         const contex = rightArrowClasses[i].getContext('2d');
         const thisHeight = rightArrowClasses[i].height/2;
-        const nextHeight = rightArrowClasses[i].height/2;//
+        const nextHeight = nextChild.getBoundingClientRect().height*2;
         const thisWidth = rightArrowClasses[i].width;
-        const difference = thisHeight - nextHeight;
+        const difference = thisHeight-nextHeight;
         createRightArrow(contex,thisHeight,thisWidth,difference);
     }
 }
