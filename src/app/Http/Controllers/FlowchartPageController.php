@@ -53,10 +53,10 @@ class FlowchartPageController extends Controller
 
         DB::table('projects')->insert($param);
 
-        // return redirect('insert');
-        $project = DB::select('select * from projects');
+        return redirect('insert');
+        // $project = DB::select('select * from projects');
 
-        return view('layouts.base_layouts.test', ['project' => $project]);
+        // return view('layouts.base_layouts.test', ['project' => $project]);
     }
 
 

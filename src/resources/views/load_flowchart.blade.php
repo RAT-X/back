@@ -7,8 +7,9 @@
 
   <div class="createProjectWrapper">
     <div class="projectBox">
+
       <p class="projectTitle">プロジェクトのタイトル</p>
-      
+
       <div class="form-floating mb-3 projectNameBtn">
         <input type="email" class="form-control" id="floatingInput">
       </div>
