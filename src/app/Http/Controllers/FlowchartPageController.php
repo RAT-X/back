@@ -23,19 +23,19 @@ class FlowchartPageController extends Controller
         return view('project_list', ['projects' => $projects]);
     }
 
-    // public function show($id) {
-    //     // return view('flowchart');
-    //     $project = Project::find($id);
+    public function show($id) {
+        // return view('flowchart');
+        $project = Project::find($id);
 
-    //     return view('layouts.base_layouts.fc_base_layout', ['project' => $project]);
-    // }
+        return view('layouts.base_layouts.fc_base_layout', ['project' => $project]);
+    }
 
-    // public function new(Request $request)
-    // {
-    //     $project = DB::select('select * from projects');
+    public function new(Request $request)
+    {
+        $project = DB::select('select * from projects');
 
-    //     return view('layouts.base_layouts.test', ['project' => $project]);
-    // }
+        return view('layouts.base_layouts.test', ['project' => $project]);
+    }
 
     public function store(Request $request)
     {
@@ -53,7 +53,7 @@ class FlowchartPageController extends Controller
 
         DB::table('projects')->insert($param);
 
-        return redirect('insert');
+        return redirect('project_list');
         // $project = DB::select('select * from projects');
 
         // return view('layouts.base_layouts.test', ['project' => $project]);
