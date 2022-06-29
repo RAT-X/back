@@ -69,6 +69,19 @@ function pressEnter(e){
         isHere.classList.remove('isHere');
 
         isHere = document.getElementsByClassName('isHere')[0];
+        if(isHere.parentElement.nextElementSibling.nextElementSibling){
+            const wantChildren = isHere.parentElement.nextElementSibling.nextElementSibling.children;
+            const baseChildren = isHere.parentElement.children;
+            for(let i=0; i<baseChildren.length; i++){
+                if(baseChildren[i].classList.contains('isHere')){
+                    wantChildren[i-2].className = 'process';
+                    wantChildren[i-2].style.height = '50px';
+                    wantChildren[i-1].classList.add('downArrow');
+                }
+            }
+        }
+
+        isHere = document.getElementsByClassName('isHere')[0];
         const p = document.createElement('p');
         p.className = 'itemBox';
         p.insertAdjacentElement('beforeend',input);
@@ -78,9 +91,9 @@ function pressEnter(e){
         input.value = '';
         input.focus();
 
-        const nCanvas = document.getElementsByClassName('downArrow');
-        for(let i=0; i<nCanvas.length; i++){
-            const nextContext = nCanvas[i].getContext('2d');
+        const downArrows = document.getElementsByClassName('downArrow');
+        for(let i=0; i<downArrows.length; i++){
+            const nextContext = downArrows[i].getContext('2d');
             createDownArrow(nextContext,dAStart);
         }
         arrowCount = 2;
@@ -131,7 +144,8 @@ function changeBox(){
                 wNext ? interruptArea() : addArea();
             }
 
-            wNext ? getStraitLineClass() : addBranchClass();
+            wNext ? getStraitLineClass() : addRightArrowClass();
+            getRightArrowClass();
             break;
         case 2:
             changeStyle('itemBox process strongPr isHere');
@@ -214,21 +228,21 @@ function interruptArea(){
         i % 2 === 0 ? evenArea() : oddArea();
 
         function oddArea(){
-            for(let n=0; n<baseElement.children.length; n++){
-                nextArea.style.width = evenWidth;
-                
-                createItems('canvas','arrow','');
-            }
+            lineupItems('canvas','arrow rightArrow');
+            isHere.parentElement.nextElementSibling.style.width = '90px';
         }
         function evenArea(){
+            lineupItems('div','');
+        }
+        function lineupItems(item,classes){
             for(let n=0; n<baseElement.children.length; n++){
                 n % 2 === 0 ? evenBox() : oddBox();
                 function evenBox(){
-                    if(n+(allArea.length-4) <baseElement.children.length){
-                        const containItem = thisChildren[n+(allArea.length-4)].classList.contains('isHere');
-                        containItem ? createItems('canvas','arrow straitLine',oddheight) :createItems('div','',oddheight);
-                    }else{
-                        createItems('div','',oddheight);
+                    if(n === 0){
+                        createItems('canvas','arrow','30px');
+                    }
+                    if(n >= 2){
+                        baseElement.children[n].classList.contains('isHere') ? createItems(item,classes,'') : createItems('canvas','arrow straitLine','28.5px');
                     }
                 }
                 function oddBox(){
@@ -282,27 +296,34 @@ function removeStrong(){
     strongs.forEach((value)=>{isHere.classList.remove(value);});
 }
 
-function addBranchClass(){
+function addRightArrowClass(){
     isHere = document.getElementsByClassName('isHere')[0];
     baseElement = isHere.parentElement;
     nextElement = baseElement.nextElementSibling;
     const wNextElement = baseElement.nextElementSibling.nextElementSibling;
     const thisChildren = baseElement.children;
     const nextChildren = nextElement.children;
-    const wNextChildren = wNextElement.children;
     for(let i=0; i<thisChildren.length; i++){
         if(thisChildren[i].classList.contains('branch')){
-            if(!nextChildren[i].classList.contains('rightArrow')){
-                nextChildren[i].classList.add('rightArrow');
-                const thisHeight = nextChildren[i].height / 2;
-                const thisWidth = nextChildren[i].width;
-                const wNextHeight = wNextChildren[i].getBoundingClientRect().height;
-                const difference = thisHeight - wNextHeight;
-                const contex = nextChildren[i].getContext('2d');
-                createRightArrow(contex, thisHeight ,thisWidth, difference);
-            }
+            nextChildren[i].classList.add('rightArrow');
+            // const wNextChildren = wNextElement.children;
+            // const wNextHeight = wNextChildren[i].getBoundingClientRect().height;
         }
     }
+}
+
+function getRightArrowClass(){//仮
+    const rightArrowClasses = document.getElementsByClassName('rightArrow');
+    // for(let i=0; i<rightArrowClasses.length; i++){
+        const nextChildren = rightArrowClasses[0].parentElement.nextElementSibling.children;
+        const nextChild = nextChildren[0];
+        const contex = rightArrowClasses[0].getContext('2d');
+        const thisHeight = rightArrowClasses[0].height/2;
+        const nextHeight = nextChild.getBoundingClientRect().height*3;
+        const thisWidth = rightArrowClasses[0].width;
+        const difference = thisHeight-nextHeight;
+        createRightArrow(contex,thisHeight,thisWidth,difference);
+    // }
 }
 
 function getStraitLineClass(){
