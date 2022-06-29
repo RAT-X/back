@@ -24,10 +24,10 @@ Route::get('/load_flowchart', 'App\Http\Controllers\LoadFlowchartController@show
 Route::get('/flowcharts', 'App\Http\Controllers\FlowchartPageController@index')
 ->name('project.list'); // 一覧表示
 
-Route::get('/flowchart', 'App\Http\Controllers\FlowchartPageController@store')->name('project.store');
+// Route::get('/flowchart', 'App\Http\Controllers\FlowchartPageController@store')->name('project.store');
 
-Route::post('/flowchart', 'App\Http\Controllers\FlowchartPageController@create')
-->name('project.new'); // 新規作成
+// Route::post('/flowchart', 'App\Http\Controllers\FlowchartPageController@create')
+// ->name('project.new'); // 新規作成
 
 
 Route::get('/flowchart/{id}/{project_title}', 'App\Http\Controllers\FlowchartPageController@show')
@@ -50,7 +50,11 @@ Route::get('/project/new', 'App\Http\Controllers\ProjectController@create')
 
 
 
+Route::get('/flowchart/new', function () {
+    return view('new_flowchart');
+});
 
+Route::get('/new_flowchart_after', 'App\Http\Controllers\SampleController@showPage');
 // Route::get('/', function() {
 //     return redirect('/projects');
 // });

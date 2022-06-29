@@ -4,5 +4,5 @@
     </div>
 </div>
 <div id="plusBtnWrapper">
-    <i class="fa-solid fa-circle-plus"></i>
+    <i class="fa-solid fa-circlWe-plus"></i>
 </div>
