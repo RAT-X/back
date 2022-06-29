@@ -30,6 +30,8 @@ class FlowchartPageController extends Controller
         return view('layouts.base_layouts.fc_base_layout', ['project' => $project]);
     }
 
+
+
     public function new(Request $request)
     {
         $project = DB::select('select * from projects');

@@ -11,7 +11,5 @@
             <p>プロジェクトのタイトル：{{Form::text('project_title', '', ['id' => 'project_title'])}}</p>
             <p>{{ Form::button('作成', ['type' => 'submit'])}}</p>
         {{Form::close()}}
-
-        
     </div>
 </div>
