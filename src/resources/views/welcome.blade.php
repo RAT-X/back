@@ -20,10 +20,12 @@
             <div class="createBtnBox">
                 <a type="button" class="btn btn-primary" href="{{ url('/chartman/new') }}"><i class="bi bi-arrow-down-right-square" style="font-size: 1.5rem"></i> &ensp;新規作成</a>
             </div>
-            <form action="{{ route('logout') }}" method="post">
-                @csrf
-                <input type="submit" value="ログアウト">
-            </form>
+            <div class="createBtnBox">
+                <form action="{{ route('logout') }}" method="post">
+                    @csrf
+                    <input class="btn btn-warning" type="submit" value="ログアウト">
+                </form>
+            </div>
         </div>
     </div>
 </div>
