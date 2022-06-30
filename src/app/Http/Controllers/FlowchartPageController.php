@@ -23,6 +23,11 @@ class FlowchartPageController extends Controller
         return view('project_list', ['projects' => $projects]);
     }
 
+    public function getTitle(Request $request){
+        $project_title = $request->input('project_title');
+        return view('layouts.base_layouts.fc_base_layout', compact('project_title'));
+    }
+
     public function show($id) {
         // return view('flowchart');
         $project = Project::find($id);

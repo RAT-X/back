@@ -7,7 +7,7 @@
 
     <div class="createProjectWrapper">
 
-        {{Form::open(['method' => 'get', 'url' => 'new_flowchart_after'])}}
+        {{Form::open(['method' => 'post', 'url' => '/flowchart/new/'])}}
         @csrf
             <p>プロジェクトのタイトル：{{Form::text('project_title', '', ['id' => 'project_title'])}}</p>
             <p>{{ Form::button('作成', ['type' => 'submit'])}}</p>

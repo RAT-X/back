@@ -13,11 +13,15 @@ use App\Http\Controllers\ChartController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'App\Http\Controllers\TopPageController@index')->name('top');
-Route::get('/top', 'App\Http\Controllers\TopPageController@index');
 
-Route::get('/welcome', 'App\Http\Controllers\WelcomeController@show');
-Route::get('/make_flowchart', 'App\Http\Controllers\MakeFlowchartController@show');
+Route::get('/', function() {
+    return redirect('/chartman/top');
+});
+
+Route::get('/chartman/top', 'App\Http\Controllers\TopPageController@index')->name('chartman.top');
+
+Route::get('/chartman/welcome', 'App\Http\Controllers\EntrancePageController@index');
+
 Route::get('/load_flowchart', 'App\Http\Controllers\LoadFlowchartController@show');
 
 // FlowchartPageController
@@ -50,16 +54,14 @@ Route::post('/newpost', 'App\Http\Controllers\NewpostController@create');
 
 
 
-Route::get('/flowchart/new', function () {
+Route::get('/chartman/new/', function () {
     return view('new_flowchart');
 });
 
-Route::get('/new_flowchart_after', 'App\Http\Controllers\SampleController@showPage');
-// Route::get('/', function() {
-//     return redirect('/projects');
-// });
+Route::post('/flowchart/new/', 'App\Http\Controllers\FlowchartPageController@getTitle');
+
 // テスト用ここまで
 
 Auth::routes();
 
-Route::get('/top', [App\Http\Controllers\TopPageController::class, 'index'])->name('top');
+// Route::get('/top', [App\Http\Controllers\TopPageController::class, 'index'])->name('top');

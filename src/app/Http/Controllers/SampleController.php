@@ -11,16 +11,16 @@ use Illuminate\Support\Facades\Config;
 
 class SampleController extends Controller
 {
-    public function sample(Request $request){
+    // public function sample(Request $request){
 
-        $project_title = $request->input('project_title');
-        return view('new_flowchart', compact('project_title'));
-    }
+    //     $project_title = $request->input('project_title');
+    //     return view('new_flowchart', compact('project_title'));
+    // }
 
-    public function showPage(Request $request){
-        $project_title = $request->input('project_title');
-        return view('layouts.base_layouts.fc_base_layout', compact('project_title'));
-    }
+    // public function showPage(Request $request){
+    //     $project_title = $request->input('project_title');
+    //     return view('layouts.base_layouts.fc_base_layout', compact('project_title'));
+    // }
 
 
 
