@@ -560,3 +560,12 @@ td {
   color: #313131;
   padding: 5px 10px;
 }
+
+.projectTitleBox {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.projectTitle {
+  margin: 0 auto;
+}

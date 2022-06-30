@@ -6,8 +6,9 @@
 
   @foreach ($projects as $project)
     <a href="{{ route('project.detail', ['id' => $project->id, 'project_title' => $project->project_title]) }}">
-      <div class="userProjectBox">
-        ProjectTitle: {{ $project->project_title }}
+      <div class="userProjectBox projectTitleBox">
+        <p class="projectTitle">ProjectNumber: {{ $project->id }}</p>
+        <p class="projectTitle">ProjectTitle: {{ $project->project_title }}</p>
       </div>
     </a>
   @endforeach

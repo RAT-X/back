@@ -6,11 +6,15 @@
     </div>
 
     <div class="createProjectWrapper">
+        <div class="projectBox">
+
+        <p class="projectTitle">プロジェクトのタイトル</p>
 
         {{Form::open(['method' => 'post', 'url' => '/flowchart/new/'])}}
-        @csrf
-            <p>プロジェクトのタイトル：{{Form::text('project_title', '', ['id' => 'project_title'])}}</p>
-            <p>{{ Form::button('作成', ['type' => 'submit'])}}</p>
+            @csrf
+                <p>{{Form::text('project_title', '', ['id' => 'project_title', 'class' => 'form-floating mb-3 projectNameBtn form-control'])}}</p>
+                <p>{{ Form::button('作成', ['type' => 'submit', 'class' => 'btn btn-primary projectCreateBtn'])}}</p>
         {{Form::close()}}
+        </div>
     </div>
 </div>
