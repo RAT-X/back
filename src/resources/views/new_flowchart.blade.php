@@ -10,7 +10,7 @@
 
         <p class="projectTitle">プロジェクトのタイトル</p>
 
-        {{Form::open(['method' => 'post', 'url' => '/flowchart/new/'])}}
+        {{Form::open(['method' => 'post', 'url' => '/chartman/flowchart/new'])}}
             @csrf
                 <p>{{Form::text('project_title', '', ['id' => 'project_title', 'class' => 'form-floating mb-3 projectNameBtn form-control'])}}</p>
                 <p>{{ Form::button('作成', ['type' => 'submit', 'class' => 'btn btn-primary projectCreateBtn'])}}</p>

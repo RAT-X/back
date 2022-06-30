@@ -21,7 +21,7 @@ class FlowchartPageController extends Controller
     {
         $projects = DB::select('select * from projects');
         return view('project_list', ['projects' => $projects]);
-    }
+    }   
 
     public function getTitle(Request $request){
         $project_title = $request->input('project_title');

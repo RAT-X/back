@@ -5,7 +5,7 @@
   <h1>プロジェクト一覧</h1><br>
 
   <div class="newProjectBtn">
-    <a href={{ route('project.new') }} class="btn btn-outline-primary">新しいプロジェクト</a>
+    <a href={{ route('chartman.new') }} class="btn btn-outline-primary">新しいプロジェクト</a>
   </div>
 
 

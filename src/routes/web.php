@@ -20,21 +20,28 @@ Route::get('/', function() {
 
 Route::get('/chartman/top', 'App\Http\Controllers\TopPageController@index')->name('chartman.top');
 
-Route::get('/chartman/welcome', 'App\Http\Controllers\EntrancePageController@index');
+Route::get('/chartman/welcome', 'App\Http\Controllers\EntrancePageController@index')
+->name('chartman.welcome');
 
-Route::get('/load_flowchart', 'App\Http\Controllers\LoadFlowchartController@show');
+Route::get('/chartman/new/', function () {
+    return view('new_flowchart');
+})->name('chartman.new');
+
+Route::post('/chartman/flowchart/new/', 'App\Http\Controllers\FlowchartPageController@getTitle')
+->name('project.new');
+
 
 // FlowchartPageController
-Route::get('/flowcharts', 'App\Http\Controllers\FlowchartPageController@index')
+Route::get('chartman/flowcharts', 'App\Http\Controllers\FlowchartPageController@index')
 ->name('project.list'); // 一覧表示
 
-Route::get('/flowchart', 'App\Http\Controllers\FlowchartPageController@store')->name('project.store');
+Route::get('chartman/flowchart', 'App\Http\Controllers\FlowchartPageController@store')->name('project.store');
 
-Route::post('/flowchart', 'App\Http\Controllers\FlowchartPageController@create')
-->name('project.new'); // 新規作成
+Route::post('chartman/flowchart', 'App\Http\Controllers\FlowchartPageController@create')
+; // 新規作成
 
 
-Route::get('/flowchart/{id}/{project_title}', 'App\Http\Controllers\FlowchartPageController@show')
+Route::get('/chartman/flowchart/{id}/{project_title}', 'App\Http\Controllers\FlowchartPageController@show')
 ->name('project.detail'); // 詳細ページ
 // ここまで
 
@@ -54,11 +61,7 @@ Route::post('/newpost', 'App\Http\Controllers\NewpostController@create');
 
 
 
-Route::get('/chartman/new/', function () {
-    return view('new_flowchart');
-});
 
-Route::post('/flowchart/new/', 'App\Http\Controllers\FlowchartPageController@getTitle');
 
 // テスト用ここまで
 
