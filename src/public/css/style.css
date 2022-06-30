@@ -569,3 +569,7 @@ td {
 .projectTitle {
   margin: 0 auto;
 }
+
+.newProjectBtn {
+  margin-left: 400px;
+}

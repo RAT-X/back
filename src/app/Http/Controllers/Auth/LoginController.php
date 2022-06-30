@@ -26,7 +26,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = "/chartman/welcome/";
+    // protected $redirectTo = "/chartman/welcome/";
+    protected $redirectTo = "chartman.welcome";
     // protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
