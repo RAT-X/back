@@ -18,7 +18,7 @@ Route::get('/', function() {
     return redirect('/chartman/top');
 });
 
-Route::get('/chartman/top', 'App\Http\Controllers\TopPageController@index')->name('chartman.top');
+Route::get('/chartman/top', 'App\Http\Controllers\TopPageController@index')->name('chartman.top')->name('chartman.top');
 
 Route::get('/chartman/welcome', 'App\Http\Controllers\EntrancePageController@index')
 ->name('chartman.welcome');
@@ -54,7 +54,7 @@ Route::post('/newpost', 'App\Http\Controllers\NewpostController@create');
 
 Route::get('/chartman/new/', function () {
     return view('new_flowchart');
-});
+})->name('chartman.new');
 
 Route::post('/chartman/flowchart/new/', 'App\Http\Controllers\FlowchartPageController@getTitle');
 
