@@ -52,12 +52,6 @@ Route::get('/insert', 'App\Http\Controllers\NewpostController@index');
 Route::post('/newpost', 'App\Http\Controllers\NewpostController@create');
 
 
-Route::get('/chartman/new/', function () {
-    return view('new_flowchart');
-})->name('chartman.new');
-
-Route::post('/chartman/flowchart/new/', 'App\Http\Controllers\FlowchartPageController@getTitle');
-
 // テスト用ここまで
 
 Auth::routes();

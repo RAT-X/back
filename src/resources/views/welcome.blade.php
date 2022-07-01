@@ -15,15 +15,15 @@
 
         <div class="createBtnWrapper">
             <div class="createBtnBox">
-                <a type="button" class="btn btn-success" href="{{ route('project.list') }}"><i class="bi bi-arrow-up-right-square" style="font-size: 1.5rem"></i> &ensp;作成済みの<br>プロジェクトを開く</a>
+                <a type="button" class="btn btn-success createBtn" href="{{ route('project.list') }}"><i class="bi bi-arrow-up-right-square" style="font-size: 1.5rem"></i> &ensp;作成済みのプロジェクトを開く</a>
             </div>
             <div class="createBtnBox">
-                <a type="button" class="btn btn-primary" href="{{ url('/chartman/new') }}"><i class="bi bi-arrow-down-right-square" style="font-size: 1.5rem"></i> &ensp;新規作成</a>
+                <a type="button" class="btn btn-primary createBtn" href="{{ url('/chartman/new') }}"><i class="bi bi-arrow-down-right-square" style="font-size: 1.5rem"></i> &ensp;新規作成</a>
             </div>
             <div class="createBtnBox">
                 <form action="{{ route('logout') }}" method="post">
                     @csrf
-                    <input class="btn btn-warning" type="submit" value="ログアウト">
+                    <input class="btn btn-warning createBtnLogout" type="submit" value="ログアウト">
                 </form>
             </div>
         </div>
