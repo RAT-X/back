@@ -32,11 +32,7 @@ Route::post('/chartman/flowchart/new/', 'App\Http\Controllers\FlowchartPageContr
 
 
 // FlowchartPageController
-<<<<<<< HEAD
-Route::get('/chartman/flowcharts', 'App\Http\Controllers\FlowchartPageController@index')
-=======
 Route::get('chartman/flowcharts', 'App\Http\Controllers\FlowchartPageController@index')
->>>>>>> test-branch
 ->name('project.list'); // 一覧表示
 
 Route::get('chartman/flowchart', 'App\Http\Controllers\FlowchartPageController@store')->name('project.store');
@@ -56,24 +52,11 @@ Route::get('/insert', 'App\Http\Controllers\NewpostController@index');
 Route::post('/newpost', 'App\Http\Controllers\NewpostController@create');
 
 
-<<<<<<< HEAD
 Route::get('/chartman/new/', function () {
     return view('new_flowchart');
 });
 
 Route::post('/chartman/flowchart/new/', 'App\Http\Controllers\FlowchartPageController@getTitle');
-=======
-
-
-
-
-// Route::get('/project/new', 'App\Http\Controllers\ProjectController@create')
-// ->name('project.new'); // 新規作成
-
-
-
-
->>>>>>> test-branch
 
 // テスト用ここまで
 
