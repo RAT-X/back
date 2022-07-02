@@ -26,7 +26,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = "/welcome/";
+    // protected $redirectTo = "/chartman/welcome/";
+    protected $redirectTo = "/chartman/welcome";
     // protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
@@ -40,7 +41,7 @@ class LoginController extends Controller
     }
 
     protected function loggedOut(\Illuminate\Http\Request $request) {
-        return redirect('top');
+        return redirect('/');
         // return redirect('login');
       }
 }

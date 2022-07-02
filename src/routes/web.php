@@ -13,19 +13,37 @@ use App\Http\Controllers\ChartController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'App\Http\Controllers\TopPageController@index')->name('top');
-Route::get('/top', 'App\Http\Controllers\TopPageController@index');
 
-Route::get('/welcome', 'App\Http\Controllers\WelcomeController@show');
-Route::get('/create_flowchart', 'App\Http\Controllers\MakeFlowchartController@show');
-Route::get('/load_flowchart', 'App\Http\Controllers\LoadFlowchartController@show');
+Route::get('/', function() {
+    return redirect('/chartman/top');
+});
+
+Route::get('/chartman/top', 'App\Http\Controllers\TopPageController@index')->name('chartman.top')->name('chartman.top');
+
+Route::get('/chartman/welcome', 'App\Http\Controllers\EntrancePageController@index')
+->name('chartman.welcome');
+
+Route::get('/chartman/new/', function () {
+    return view('new_flowchart');
+})->name('chartman.new');
+
+Route::post('/chartman/flowchart/new/', 'App\Http\Controllers\FlowchartPageController@getTitle')
+->name('project.new');
 
 
-Route::get('/flowcharts', 'App\Http\Controllers\FlowchartPageController@index')
+// FlowchartPageController
+Route::get('chartman/flowcharts', 'App\Http\Controllers\FlowchartPageController@index')
 ->name('project.list'); // 一覧表示
 
-Route::get('/flowchart/{id}/{project_title}', 'App\Http\Controllers\FlowchartPageController@show')
-->name('project.detail');
+Route::get('chartman/flowchart', 'App\Http\Controllers\FlowchartPageController@store')->name('project.store');
+
+Route::post('chartman/flowchart', 'App\Http\Controllers\FlowchartPageController@create')
+; // 新規作成
+
+
+Route::get('/chartman/flowchart/{id}/{project_title}', 'App\Http\Controllers\FlowchartPageController@show')
+->name('project.detail'); // 詳細ページ
+// ここまで
 
 // test用
 Route::get('/newpost', 'App\Http\Controllers\NewpostController@store')->name('project.store');
@@ -34,23 +52,8 @@ Route::get('/insert', 'App\Http\Controllers\NewpostController@index');
 Route::post('/newpost', 'App\Http\Controllers\NewpostController@create');
 
 
-
-Route::get('/project/new', 'App\Http\Controllers\ProjectController@create')
-->name('project.new'); // 新規作成
-
-
-
-Route::get('/project/new', 'App\Http\Controllers\ProjectController@create')
-->name('project.new'); // 新規作成
-
-
-
-
-// Route::get('/', function() {
-//     return redirect('/projects');
-// });
 // テスト用ここまで
 
 Auth::routes();
 
-Route::get('/top', [App\Http\Controllers\TopPageController::class, 'index'])->name('top');
+// Route::get('/top', [App\Http\Controllers\TopPageController::class, 'index'])->name('top');

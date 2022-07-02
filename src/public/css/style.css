@@ -118,8 +118,10 @@ a {
   margin: 0 auto;
 }
 
-.createMessageBox {
-text-align: center;
+.createMessageBox h1 {
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 
 .createBtnWrapper {
@@ -130,9 +132,22 @@ text-align: center;
 
 .createBtnBox {
   margin-top: 10px;
-  border-radius: 10px;
   font-size: 18px;
 }
+
+.createBtn {
+  margin-top: 20px;
+  padding: 0 100px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.createBtnLogout {
+  margin-top: 20px;
+  height: 50px;
+}
+
+
 
 /* load_flowchart */
 .createProjectWrapper {
@@ -559,4 +574,17 @@ td {
   border: 1px solid #aaa;
   color: #313131;
   padding: 5px 10px;
+}
+
+.projectTitleBox {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.projectTitle {
+  margin: 0 auto;
+}
+
+.newProjectBtn {
+  margin-left: 400px;
 }
