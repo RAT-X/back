@@ -51,10 +51,12 @@ const tester2 = document.getElementsByClassName('fa-question')[0];
 
 input.addEventListener('input',inputExtender);
 input.addEventListener('keydown',pressShiftArrow);
+input.addEventListener('keydown',pressShiftLR);
 input.addEventListener('keydown',pressEnter);
 input.addEventListener('keydown',styleAdjaster);
 
 let arrowCount = 2;
+let moveCount = 0;
 let shiftCount = 0;
 
 function pressEnter(e){
@@ -130,10 +132,10 @@ function pressShiftArrow(e){
 function changeBox(){
     switch(arrowCount){
         case 0:
-            changeStyle('itemBox startEnd2 strongBE2 isHere');
+            changeStyle('startEnd2 strongBE2 isHere');
             break;
         case 1:
-            changeStyle('itemBox branch strongBr isHere');
+            changeStyle('branch strongBr isHere');
             isHere = document.getElementsByClassName('isHere')[0];
 
             let thisElement = isHere.parentElement;
@@ -148,24 +150,82 @@ function changeBox(){
             getRightArrowClass();
             break;
         case 2:
-            changeStyle('itemBox process strongPr isHere');
+            changeStyle('process strongPr isHere');
             break;
         case 3:
-            changeStyle('itemBox input strongIn isHere');
+            changeStyle('input strongIn isHere');
             break;
         case 4:
-            changeStyle('itemBox loopStart strongLs isHere');
+            changeStyle('loopStart strongLs isHere');
             break;
         case 5:
-            changeStyle('itemBox loopEnd strongLe isHere');
+            changeStyle('loopEnd strongLe isHere');
             break;
         case 6:
-            changeStyle('itemBox connectOut isHere');
+            changeStyle('connectOut isHere');
             break;
         case 7:
-            changeStyle('itemBox connectIn isHere');
+            changeStyle('connectIn isHere');
             break;
     }
+}
+
+function pressShiftLR(e){
+    if(e.shiftKey && e.key === 'ArrowLeft' || e.shiftKey && e.key === 'ArrowRight'){
+        moveCount += 1;
+        if(moveCount === 2){
+            moveCount = 0;
+        }
+        moveBox();
+    }
+}
+
+function moveBox(){
+    switch(moveCount){
+        case 0:
+            let base0 = document.getElementsByClassName('isHere')[0];
+            const base1Parent = base0.parentElement;
+            const previousBase1 = base1Parent.previousElementSibling.previousElementSibling;
+            const baseChildren = base1Parent.getElementsByClassName('process');
+            const previousProcesses = previousBase1.getElementsByClassName('process');
+            previousProcesses[previousProcesses.length-1].className = 'process strongPr isHere';
+            previousProcesses[previousProcesses.length-1].firstElementChild.className = 'itemBox';
+            previousProcesses[previousProcesses.length-1].firstElementChild.insertAdjacentElement('beforeend',input);
+            input.focus();
+            base0 = document.getElementsByClassName('isHere')[1];
+            base0.className = 'process';
+            base0 = document.getElementsByClassName('isHere')[0];
+            break;
+        case 1:
+            let base2 = document.getElementsByClassName('isHere')[0];
+            const base2Parent = base2.parentElement;
+            const searchProcess = base2Parent.nextElementSibling.nextElementSibling.getElementsByClassName('process');
+            const p = document.createElement('p');
+            p.className = 'itemBox';
+            base2.firstElementChild.firstElementChild.remove();
+            if(searchProcess.length === 1){
+                if(base2.classList.contains('process')){
+                    const next = base2.parentElement.nextElementSibling.nextElementSibling;
+                    for(let i=0; i<next.children.length; i++){
+                        if(next.children[i].classList.contains('process')){
+                            next.children[i].className = 'process strongPr isHere';
+                            if(next.children[i].childElementCount === 0){
+                                next.children[i].appendChild(p);
+                            }
+                            next.children[i].firstElementChild.insertAdjacentElement('beforeend',input);
+                            input.focus();
+                        }
+                    }
+                    base2 = document.getElementsByClassName('isHere')[0];
+                    base2.className = 'process';
+                }
+            }
+            searchProcess[searchProcess.length-1].className = 'process strongPr isHere';
+            searchProcess[searchProcess.length-1].firstElementChild.insertAdjacentElement('beforeend',input);
+            input.focus();
+            base2.className = 'process';
+            break;
+        }
 }
 
 function changeStyle(classname){
@@ -215,12 +275,12 @@ function addArea(){
 
 function interruptArea(){
     for(let i=0; i<2; i++){
-        const nextArea = document.createElement('div');
-        nextArea.className = 'area';
+        const div = document.createElement('div');
+        div.className = 'area';
         isHere = document.getElementsByClassName('isHere')[0];
         const thisParent = isHere.parentElement;
-        const thisChildren = thisParent.children;
-        thisParent.insertAdjacentElement('afterend',nextArea);
+        // const thisChildren = thisParent.children;
+        thisParent.insertAdjacentElement('afterend',div);
 
         baseElement = document.getElementsByClassName('area')[1];
         allArea = document.getElementsByClassName('area');
@@ -254,7 +314,7 @@ function interruptArea(){
             const nextItems = document.createElement(item);
             nextItems.className = cn;
             nextItems.style.height = sh;
-            nextArea.insertAdjacentElement('beforeend',nextItems);
+            div.insertAdjacentElement('beforeend',nextItems);
         }
     }
 }
@@ -315,14 +375,16 @@ function addRightArrowClass(){
 function getRightArrowClass(){//仮
     const rightArrowClasses = document.getElementsByClassName('rightArrow');
     // for(let i=0; i<rightArrowClasses.length; i++){
-        const nextChildren = rightArrowClasses[0].parentElement.nextElementSibling.children;
-        const nextChild = nextChildren[0];
-        const contex = rightArrowClasses[0].getContext('2d');
-        const thisHeight = rightArrowClasses[0].height/2;
-        const nextHeight = nextChild.getBoundingClientRect().height*3;
-        const thisWidth = rightArrowClasses[0].width;
-        const difference = thisHeight-nextHeight;
-        createRightArrow(contex,thisHeight,thisWidth,difference);
+        if(rightArrowClasses[0].parentElement.nextElementSibling){
+            const nextChildren = rightArrowClasses[0].parentElement.nextElementSibling.children;
+            const nextChild = nextChildren[0];
+            const contex = rightArrowClasses[0].getContext('2d');
+            const thisHeight = rightArrowClasses[0].height/2;
+            const nextHeight = nextChild.getBoundingClientRect().height*3;
+            const thisWidth = rightArrowClasses[0].width;
+            const difference = thisHeight-nextHeight;
+            createRightArrow(contex,thisHeight,thisWidth,difference);
+        }
     // }
 }
 
