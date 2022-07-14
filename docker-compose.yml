@@ -2,6 +2,7 @@ version: '3.8'
 
 volumes:
   mysql-volume:
+  maildir: {}
 
 services:
   app:
@@ -58,6 +59,19 @@ services:
       - "3000:80"
     volumes:
       - ./docker/phpmyadmin/sessions:/sessions
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - target: 8025
+        published: ${MAILHOG_PUBLISHED_PORT:-8025}
+        protocol: tcp
+        mode: host
+    environment:
+      MH_STORAGE: maildir
+      MH_MAILDIR_PATH: /tmp
+    volumes:
+      - maildir:/tmp
     #   - ./data:/var/lib/mysql
     #   - ./logs:/var/log/mysql
     # command: bash -c 'usermod -o -u $LINUX_MYSQL_UID mysql; groupmod -o -g $LINUX_MYSQL_GID mysql; chown -R mysql:root /var/run/mysqld/ /var/log/mysql/ /var/lib/mysql/; /entrypoint.sh mysqld --user=mysql --console'
